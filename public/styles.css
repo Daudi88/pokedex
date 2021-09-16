@@ -1,4 +1,19 @@
+:root {
+  --clr-secondary-dark: #2f2f2f;
+  --clr-secondary: #eff1f0;
+  --clr-accent: #feca1b;
+  --clr-accent-dark: #ef5350;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: #e3e0e2;
+  background-color: var(--clr-secondary);
   background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
 }

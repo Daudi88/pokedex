@@ -1,9 +1,15 @@
 import React from "react";
+import Routes from "../routes/Routes";
+import Navbar from "./navbar/Navbar";
+import Footer from "./footer/Footer";
 
 function App() {
   return (
     <div>
-      <h1>This is the pokedex!</h1>
+      <Routes>
+        <Navbar />
+        <Footer />
+      </Routes>
     </div>
   );
 }
