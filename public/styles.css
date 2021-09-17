@@ -17,3 +17,19 @@ body {
   background-color: var(--clr-secondary);
   background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
 }
+
+.btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--clr-secondary-dark);
+}
+
+.btn:hover,
+.btn:focus {
+  color: var(--clr-accent);
+}
+
+.btn:active {
+  color: var(--clr-accent-dark);
+}

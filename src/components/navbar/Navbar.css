@@ -22,29 +22,23 @@ nav {
   cursor: pointer;
 }
 
-.nav-btn {
-  background-color: transparent;
+.btn-nav {
   color: var(--clr-secondary);
   font-family: "pokemon hollow";
   font-size: 1.5rem;
-  border: none;
   margin-inline: 2em;
   margin-top: 0.5em;
-  cursor: pointer;
 }
 
 .brand:hover,
 .logo:hover,
-.logo:hover + .brand,
-.nav-btn:hover,
-.nav-btn:focus {
+.logo:hover + .brand {
   color: var(--clr-accent);
 }
 
 .brand:active,
 .logo:active,
-.logo:active + .brand,
-.nav-btn:active {
+.logo:active + .brand {
   color: var(--clr-accent-dark);
 }
 

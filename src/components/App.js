@@ -2,15 +2,16 @@ import React from "react";
 import Routes from "../routes/Routes";
 import Navbar from "./navbar/Navbar";
 import Footer from "./footer/Footer";
+import PokemonProvider from "../shared/Provider/PokemonProvider";
 
 function App() {
   return (
-    <div>
+    <PokemonProvider>
       <Routes>
         <Navbar />
         <Footer />
       </Routes>
-    </div>
+    </PokemonProvider>
   );
 }
 

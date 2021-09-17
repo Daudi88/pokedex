@@ -38,7 +38,7 @@ function Navbar() {
         PoKéDex
       </h1>
       <button
-        className="nav-btn"
+        className="btn btn-nav"
         onClick={() =>
           history.push(RoutingPath.favoritesView, "You pressed the link.")
         }
