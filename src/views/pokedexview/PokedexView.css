@@ -1,3 +1,10 @@
-div {
-    text-align: center;
+.pokedex-view {
+  text-align: center;
+}
+
+.pokedex-container {
+  text-align: center;
+  display: flex;
+  width: 1100px;
+  margin: 0 auto;
 }

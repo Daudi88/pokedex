@@ -1,14 +1,14 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState } from "react";
 
-export const PokemonContext = createContext()
+export const PokemonContext = createContext();
 
-function PokemonProvider({children}) {
-    const [pokemonId, setPokemonId] = useState();
-    return (
-        <PokemonContext.Provider value={[pokemonId, setPokemonId]}>
-            {children}
-        </PokemonContext.Provider>
-    )
+function PokemonProvider({ children }) {
+  const [pokemonFavorites, setPokemonFavorites] = useState();
+  return (
+    <PokemonContext.Provider value={[pokemonFavorites, setPokemonFavorites]}>
+      {children}
+    </PokemonContext.Provider>
+  );
 }
 
-export default PokemonProvider
+export default PokemonProvider;
