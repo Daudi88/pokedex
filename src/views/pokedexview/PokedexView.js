@@ -33,11 +33,11 @@ function PokedexView() {
 
   async function getPokemon() {
     try {
-      const res = await axios.get(API_URL);
+      const result = await axios.get(API_URL);
       setPokemon({
-        name: res.data.name,
-        id: res.data.id,
-        img: res.data.sprites.other["official-artwork"].front_default,
+        name: result.data.name,
+        id: result.data.id,
+        img: result.data.sprites.other["official-artwork"].front_default,
       });
 
       const descRes = await axios.get(API_DESC_URL);
@@ -75,7 +75,7 @@ function PokedexView() {
 
   const location = useLocation();
   return (
-    <div className="pokedex-view">
+    <div className="view-wrapper">
       <h1>This is the Pokedex View!</h1>
       <p>{location.state}</p>
       <div className="pokedex-container">

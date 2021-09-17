@@ -1,10 +1,11 @@
-.pokedex-view {
+.view-wrapper {
   text-align: center;
+  height: 85vh;
 }
 
 .pokedex-container {
   text-align: center;
   display: flex;
-  width: 1100px;
+  width: 50em;
   margin: 0 auto;
 }

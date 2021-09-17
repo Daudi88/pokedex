@@ -12,31 +12,17 @@ nav {
   margin-top: 0.5em;
   width: 50px;
   height: 50px;
-  cursor: pointer;
 }
 
 .brand {
   font-size: 2.5rem;
   font-family: "Pokemon-Solid";
-  cursor: pointer;
 }
 
 .btn-nav {
-  color: var(--clr-secondary);
   font-family: "Pokemon-Hollow";
+  color: var(--clr-secondary);
   font-size: 1.5rem;
   margin-inline: 2em;
   margin-top: 0.5em;
-}
-
-.brand:hover,
-.logo:hover,
-.logo:hover + .brand {
-  color: var(--clr-accent);
-}
-
-.brand:active,
-.logo:active,
-.logo:active + .brand {
-  color: var(--clr-accent-dark);
 }
