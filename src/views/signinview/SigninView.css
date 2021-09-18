@@ -3,10 +3,10 @@
   flex-direction: column;
   width: 30em;
   margin: 2em auto;
-  gap: 3em;
   background-color: #fff;
   border-radius: 20px;
   padding: 4em;
+  gap: 2em;
 }
 
 .signin-input {
@@ -15,17 +15,27 @@
   border-bottom: 1px solid var(--clr-accent-light);
   color: var(--clr-accent-light);
   font-size: 1.25rem;
+  padding: 0.5em;
 }
 
-.btn-signin {
-  margin: 0 auto;
+.btns {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
 }
 
-.btn-signin:hover,
-.btn-signin:focus {
-  background-color: #1b82b1;
+.btn-login {
+  background-color: var(--clr-primary);
 }
 
-.btn-signin:active {
+.btn-login:hover {
+  background-color: var(--clr-primary-dark);
+}
+
+.btn-register {
+  background-color: var(--clr-accent);
+}
+
+.btn-register:hover {
   background-color: var(--clr-accent-dark);
 }

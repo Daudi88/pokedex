@@ -1,9 +1,14 @@
 :root {
+  --clr-primary: #4dad5b;
+  --clr-primary-dark: #369143;
+  --clr-accent: #30a7d7;
+  --clr-accent-dark: #1b82b1;
   --clr-secondary-dark: #2f2f2f;
   --clr-secondary: #eff1f0;
-  --clr-accent: #feca1b;
-  --clr-accent-dark: #ef5350;
-  --clr-accent-light: #9f9f9f;
+  --clr-secondary-light: #9f9f9f;
+  /* byt ut dessa färger sen */
+  --clr-warning: orange;
+  --clr-warning-dark: red;
 }
 
 *,
@@ -25,9 +30,12 @@ body {
   cursor: pointer;
   font-size: 1.5rem;
   font-family: "Flexo-Regular";
-  background-color: #30a7d7;
   color: var(--clr-secondary);
   border-radius: 8px;
   width: 6em;
   height: 1.5em;
+}
+
+.btn:hover {
+  background-color: #1b82b1;
 }

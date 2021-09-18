@@ -24,13 +24,9 @@ nav {
   right: 1em;
   margin-inline: 2em;
   margin-top: 0.5em;
+  background-color: var(--clr-warning);
 }
 
-.btn-nav:hover,
-.btn-nav:focus {
-  color: var(--clr-accent);
-}
-
-.btn-nav:active {
-  color: var(--clr-accent-dark);
+.btn-nav:hover {
+  background-color: var(--clr-warning-dark);
 }

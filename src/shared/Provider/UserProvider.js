@@ -3,9 +3,9 @@ import React, { createContext, useState } from "react";
 export const UserContext = createContext();
 
 function UserProvider({ children }) {
-  const [isUserSignedIn, setisUserSignedIn] = useState();
+  const [authenticatedUser, setAuthenticatedUser] = useState();
   return (
-    <UserContext.Provider value={[isUserSignedIn, setisUserSignedIn]}>
+    <UserContext.Provider value={[authenticatedUser, setAuthenticatedUser]}>
       {children}
     </UserContext.Provider>
   );

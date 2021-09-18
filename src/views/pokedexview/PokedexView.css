@@ -14,7 +14,7 @@
 .btn-arrow {
   border: none;
   background-color: transparent;
-  color: var(--clr-accent-light);
+  color: var(--clr-secondary-light);
 }
 
 .btn-arrow:hover,
