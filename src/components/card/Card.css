@@ -14,7 +14,7 @@
 }
 
 .card-id {
-  color: #9f9f9f;
+  color: var(--clr-accent-light);
 }
 
 .card-img {

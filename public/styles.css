@@ -3,6 +3,7 @@
   --clr-secondary: #eff1f0;
   --clr-accent: #feca1b;
   --clr-accent-dark: #ef5350;
+  --clr-accent-light: #9f9f9f;
 }
 
 *,
@@ -20,17 +21,13 @@ body {
 }
 
 .btn {
-  background-color: transparent;
   border: none;
   cursor: pointer;
-  color: var(--clr-secondary-dark);
-}
-
-.btn:hover,
-.btn:focus {
-  color: var(--clr-accent);
-}
-
-.btn:active {
-  color: var(--clr-accent-dark);
+  font-size: 1.5rem;
+  font-family: "Flexo-Regular";
+  background-color: #30a7d7;
+  color: var(--clr-secondary);
+  border-radius: 8px;
+  width: 6em;
+  height: 1.5em;
 }

@@ -20,9 +20,17 @@ nav {
 }
 
 .btn-nav {
-  font-family: "Pokemon-Hollow";
-  color: var(--clr-secondary);
-  font-size: 1.5rem;
+  position: absolute;
+  right: 1em;
   margin-inline: 2em;
   margin-top: 0.5em;
+}
+
+.btn-nav:hover,
+.btn-nav:focus {
+  color: var(--clr-accent);
+}
+
+.btn-nav:active {
+  color: var(--clr-accent-dark);
 }

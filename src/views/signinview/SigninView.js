@@ -10,13 +10,26 @@ function SigninView() {
     <div className="view-wrapper">
       <h1>This is the Signin View!</h1>
       <p>{location.state}</p>
-      <button
-        onClick={() =>
-          history.push(RoutingPath.pokedexView, "You are now signed in")
-        }
-      >
-        Sign In
-      </button>
+      <form className="signin-form">
+        <input
+          className="signin-input"
+          type="text"
+          placeholder="Username"
+        ></input>
+        <input
+          className="signin-input"
+          type="password"
+          placeholder="Password"
+        ></input>
+        <button
+          className="btn btn-signin"
+          onClick={() =>
+            history.push(RoutingPath.pokedexView, "You are now signed in")
+          }
+        >
+          Sign In
+        </button>
+      </form>
     </div>
   );
 }
