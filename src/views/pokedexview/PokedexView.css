@@ -10,3 +10,14 @@
   width: 50em;
   margin: 0 auto;
 }
+
+.btn-arrow {
+  border: none;
+  background-color: transparent;
+  color: var(--clr-accent-light);
+}
+
+.btn-arrow:hover,
+.btn-arrow:focus {
+  color: var(--clr-secondary-dark);
+}

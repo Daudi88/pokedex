@@ -79,7 +79,7 @@ function PokedexView() {
       <h1>This is the Pokedex View!</h1>
       <p>{location.state}</p>
       <div className="pokedex-container">
-        <button className="btn" onClick={decreaseId}>
+        <button className="btn-arrow" onClick={decreaseId}>
           <ArrowBackIosNewIcon fontSize="large" />
         </button>
         <Card
@@ -88,7 +88,7 @@ function PokedexView() {
           img={pokemon.img}
           description={pokemon.description}
         />
-        <button className="btn" onClick={increaseId}>
+        <button className="btn-arrow" onClick={increaseId}>
           <ArrowForwardIosIcon fontSize="large" />
         </button>
       </div>
