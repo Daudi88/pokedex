@@ -2,6 +2,7 @@ import React from "react";
 import { useHistory } from "react-router";
 import CatchingPokemonIcon from "@mui/icons-material/CatchingPokemon";
 import RoutingPath from "../../routes/RoutingPath";
+import brand from "../../shared/img/brand.png";
 import "./Navbar.css";
 
 function Navbar() {
@@ -9,8 +10,8 @@ function Navbar() {
 
   return (
     <nav>
-      <CatchingPokemonIcon className="logo" fontSize="large" />
-      <h1 className="brand">PoKéDex</h1>
+      {/* <CatchingPokemonIcon fontSize="large" /> */}
+      <img className="brand" src={brand} alt="brand" />
       <button
         className="btn btn-nav"
         onClick={() =>

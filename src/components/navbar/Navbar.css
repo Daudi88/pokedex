@@ -5,25 +5,18 @@ nav {
   flex-direction: row;
   align-items: center;
   gap: 0.5em;
+  padding: 1em;
   padding-left: 2em;
 }
 
-.logo {
-  margin-top: 0.5em;
-  width: 50px;
-  height: 50px;
-}
-
 .brand {
-  font-size: 2.5rem;
-  font-family: "Pokemon-Solid";
+  width: 12em;
 }
 
 .btn-nav {
   position: absolute;
   right: 1em;
   margin-inline: 2em;
-  margin-top: 0.5em;
   background-color: var(--clr-warning);
 }
 

@@ -84,15 +84,19 @@ function PokedexView() {
     }
   }
 
-  function getName(text) {
-    if (text.includes("-f")) {
+  function getName(name) {
+    if (name.includes("-f")) {
       console.log("female ♀");
-      text = text.replace("-f", "♀");
-    } else if (text.includes("-m")) {
+      name = name.replace("-f", "♀");
+    } else if (name.includes("-m")) {
       console.log("male ♂");
-      text = text.replace("-m", "♂");
+      name = name.replace("-m", "♂");
     }
 
+    return capitalize(name);
+  }
+
+  function capitalize(text) {
     return text.charAt(0).toUpperCase() + text.slice(1);
   }
 
