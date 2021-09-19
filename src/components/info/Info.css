@@ -1,0 +1,13 @@
+.info {
+  margin-bottom: 0.5em;
+}
+
+.info > h4 {
+  color: #fff;
+  font-weight: normal;
+}
+
+.info > p {
+  font-size: 1.25rem;
+  margin-right: 1.5em;
+}

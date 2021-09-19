@@ -3,8 +3,11 @@ import { useLocation } from "react-router";
 import axios from "axios";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import Card from "../../components/card/Card";
+import Details from "../../components/details/Details";
 import "./PokedexView.css";
+import FemaleIcon from "@mui/icons-material/Female";
+import MaleIcon from "@mui/icons-material/Male";
+import { getDialogActionsUtilityClass } from "@mui/material";
 
 function getSessionStorageOrDefault() {
   const stored = sessionStorage.getItem("pokemonId");
@@ -24,6 +27,20 @@ function PokedexView() {
     id: "", // id
     img: "", // sprites.other.official-artwork.front_default
     description: "", // flavor_text_entries[0].flavor_text
+    stats: {
+      hp: "",
+      attack: "",
+      defense: "",
+      specialAttack: "",
+      specialDefense: "",
+      speed: "",
+    },
+    info: {
+      height: "",
+      weight: "",
+      gender: "",
+      abilities: [],
+    },
   });
 
   useEffect(() => {
@@ -35,19 +52,29 @@ function PokedexView() {
     try {
       const result = await axios.get(API_URL);
       setPokemon({
-        name: result.data.name,
-        id: result.data.id,
+        name: getName(result.data.name),
+        id: getId(result.data.id),
         img: result.data.sprites.other["official-artwork"].front_default,
+        stats: {
+          hp: result.data.stats[0].base_stat,
+          attack: result.data.stats[1].base_stat,
+          defense: result.data.stats[2].base_stat,
+          specialAttack: result.data.stats[3].base_stat,
+          specialDefense: result.data.stats[4].base_stat,
+          speed: result.data.stats[5].base_stat,
+        },
+        info: {
+          height: result.data.height,
+          weight: result.data.weight,
+          abilities: result.data.abilities,
+        },
       });
 
       const descRes = await axios.get(API_DESC_URL);
-      const englishEntry = 1;
       setPokemon((prevValues) => {
         return {
           ...prevValues,
-          description: descRes.data.flavor_text_entries[
-            englishEntry
-          ].flavor_text.replace("\u000c", " "),
+          description: getDescription(descRes.data.flavor_text_entries),
         };
       });
 
@@ -55,6 +82,33 @@ function PokedexView() {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  function getName(text) {
+    if (text.includes("-f")) {
+      console.log("female ♀");
+      text = text.replace("-f", "♀");
+    } else if (text.includes("-m")) {
+      console.log("male ♂");
+      text = text.replace("-m", "♂");
+    }
+
+    return text.charAt(0).toUpperCase() + text.slice(1);
+  }
+
+  function getId(num) {
+    return num < 10 ? "#00" + num : num < 100 ? "#0" + num : "#" + num;
+  }
+
+  function getDescription(entries) {
+    const language = "en";
+    const version = "red";
+    const entry = entries.filter(
+      (entry) =>
+        entry.language.name === language && entry.version.name === version
+    );
+
+    return entry[0].flavor_text.replace("\u000c", " ");
   }
 
   function increaseId() {
@@ -76,17 +130,19 @@ function PokedexView() {
   const location = useLocation();
   return (
     <div className="view-wrapper">
-      <h1>This is the Pokedex View!</h1>
-      <p>{location.state}</p>
+      {/* <h1>This is the Pokedex View!</h1>
+      <p>{location.state}</p> */}
       <div className="pokedex-container">
         <button className="btn-arrow" onClick={decreaseId}>
           <ArrowBackIosNewIcon fontSize="large" />
         </button>
-        <Card
+        <Details
           name={pokemon.name}
           id={pokemon.id}
           img={pokemon.img}
           description={pokemon.description}
+          stats={pokemon.stats}
+          info={pokemon.info}
         />
         <button className="btn-arrow" onClick={increaseId}>
           <ArrowForwardIosIcon fontSize="large" />

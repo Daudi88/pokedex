@@ -1,14 +1,35 @@
 :root {
-  --clr-primary: #4dad5b;
-  --clr-primary-dark: #369143;
-  --clr-accent: #30a7d7;
-  --clr-accent-dark: #1b82b1;
+  --clr-primary-green: #4dad5b;
+  --clr-primary-green-dark: #369143;
+  --clr-primary-blue: #30a7d7;
+  --clr-primary-blue-dark: #1b82b1;
   --clr-secondary-dark: #2f2f2f;
   --clr-secondary: #eff1f0;
-  --clr-secondary-light: #9f9f9f;
+  --clr-secondary-light: #a4a4a4;
   /* byt ut dessa färger sen */
-  --clr-warning: orange;
-  --clr-warning-dark: red;
+  --clr-warning: #ee6b2f;
+  --clr-warning-dark: #e3350d;
+
+  --clr-type-bug: #729f3f;
+  --clr-type-dragon-top: #53a4cf;
+  --clr-type-dragon-bottom: #f16e57;
+  --clr-type-fairy: #fdb9e9;
+  --clr-type-fire: #fd7d24;
+  --clr-type-ghost: #7b62a3;
+  --clr-type-ground-top: #f7de3f;
+  --clr-type-ground-bottom: #ab9842;
+  --clr-type-normal: #a4acaf;
+  --clr-type-psychic: #f366b9;
+  --clr-type-steel: #9eb7b8;
+  --clr-type-electric: #eed535;
+  --clr-type-fighting: #d56723;
+  --clr-type-flying-top: #3dc7ef;
+  --clr-type-flying-bottom: #bdb9b8;
+  --clr-type-grass: #9bcc50;
+  --clr-type-ice: #51c4e7;
+  --clr-type-poison: #b97fc9;
+  --clr-type-rock: #a38c21;
+  --clr-type-water: #4592c4;
 }
 
 *,

@@ -1,7 +1,6 @@
 .view-wrapper {
   text-align: center;
   height: 85vh;
-  margin: 2em;
 }
 
 .pokedex-container {
@@ -15,6 +14,7 @@
   border: none;
   background-color: transparent;
   color: var(--clr-secondary-light);
+  cursor: pointer;
 }
 
 .btn-arrow:hover,

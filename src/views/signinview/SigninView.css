@@ -25,17 +25,17 @@
 }
 
 .btn-login {
-  background-color: var(--clr-primary);
+  background-color: var(--clr-primary-green);
 }
 
 .btn-login:hover {
-  background-color: var(--clr-primary-dark);
+  background-color: var(--clr-primary-green-dark);
 }
 
 .btn-register {
-  background-color: var(--clr-accent);
+  background-color: var(--clr-primary-blue);
 }
 
 .btn-register:hover {
-  background-color: var(--clr-accent-dark);
+  background-color: var(--clr-primary-blue-dark);
 }

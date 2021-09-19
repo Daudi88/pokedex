@@ -1,0 +1,37 @@
+.gauge {
+  list-style: none;
+  background-color: white;
+  font-size: 1.35rem;
+  position: relative;
+  overflow: hidden;
+}
+
+li {
+  height: 0.65em;
+  width: 100%;
+  border-bottom: 0.25em solid var(--clr-secondary-light);
+  color: #fff;
+  list-style: none;
+  background-color: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+.gauge-name {
+  color: #212121;
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  float: left;
+  text-align: center;
+  width: 100%;
+}
+
+.meter {
+  background-color: var(--clr-primary-blue);
+  height: 120%;
+  position: absolute;
+  z-index: 1;
+  border: none;
+}
