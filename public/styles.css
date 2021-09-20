@@ -11,20 +11,17 @@
   --clr-warning-dark: #e3350d;
 
   --clr-type-bug: #729f3f;
-  --clr-type-dragon-top: #53a4cf;
-  --clr-type-dragon-bottom: #f16e57;
+  --clr-type-dragon: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
   --clr-type-fairy: #fdb9e9;
   --clr-type-fire: #fd7d24;
   --clr-type-ghost: #7b62a3;
-  --clr-type-ground-top: #f7de3f;
-  --clr-type-ground-bottom: #ab9842;
+  --clr-type-ground: linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
   --clr-type-normal: #a4acaf;
   --clr-type-psychic: #f366b9;
   --clr-type-steel: #9eb7b8;
   --clr-type-electric: #eed535;
   --clr-type-fighting: #d56723;
-  --clr-type-flying-top: #3dc7ef;
-  --clr-type-flying-bottom: #bdb9b8;
+  --clr-type-flying: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
   --clr-type-grass: #9bcc50;
   --clr-type-ice: #51c4e7;
   --clr-type-poison: #b97fc9;
@@ -52,7 +49,7 @@ body {
   font-size: 1.5rem;
   font-family: "Flexo-Regular";
   color: var(--clr-secondary);
-  border-radius: 8px;
+  border-radius: 10px;
   width: 6em;
   height: 1.5em;
 }

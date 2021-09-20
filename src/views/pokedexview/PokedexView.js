@@ -4,10 +4,8 @@ import axios from "axios";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import Details from "../../components/details/Details";
+import capitalize from "../../shared/functions/capitalize";
 import "./PokedexView.css";
-import FemaleIcon from "@mui/icons-material/Female";
-import MaleIcon from "@mui/icons-material/Male";
-import { getDialogActionsUtilityClass } from "@mui/material";
 
 function getSessionStorageOrDefault() {
   const stored = sessionStorage.getItem("pokemonId");
@@ -20,8 +18,7 @@ function getSessionStorageOrDefault() {
 
 function PokedexView() {
   const [pokemonId, setPokemonId] = useState(getSessionStorageOrDefault());
-  const API_URL = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
-  const API_DESC_URL = `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`;
+
   const [pokemon, setPokemon] = useState({
     name: "", // name
     id: "", // id
@@ -41,6 +38,7 @@ function PokedexView() {
       gender: "",
       abilities: [],
     },
+    types: [],
   });
 
   useEffect(() => {
@@ -50,6 +48,7 @@ function PokedexView() {
 
   async function getPokemon() {
     try {
+      const API_URL = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
       const result = await axios.get(API_URL);
       setPokemon({
         name: getName(result.data.name),
@@ -68,13 +67,15 @@ function PokedexView() {
           weight: result.data.weight,
           abilities: result.data.abilities,
         },
+        types: result.data.types,
       });
 
-      const descRes = await axios.get(API_DESC_URL);
+      const API_DESC_URL = `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`;
+      const descResult = await axios.get(API_DESC_URL);
       setPokemon((prevValues) => {
         return {
           ...prevValues,
-          description: getDescription(descRes.data.flavor_text_entries),
+          description: getDescription(descResult.data.flavor_text_entries),
         };
       });
 
@@ -94,10 +95,6 @@ function PokedexView() {
     }
 
     return capitalize(name);
-  }
-
-  function capitalize(text) {
-    return text.charAt(0).toUpperCase() + text.slice(1);
   }
 
   function getId(num) {
@@ -136,22 +133,24 @@ function PokedexView() {
     <div className="view-wrapper">
       {/* <h1>This is the Pokedex View!</h1>
       <p>{location.state}</p> */}
-      <div className="pokedex-container">
-        <button className="btn-arrow" onClick={decreaseId}>
-          <ArrowBackIosNewIcon fontSize="large" />
+      <div className="arrows-container">
+        <button className="btn-arrow btn-arrow-left" onClick={decreaseId}>
+          <ArrowBackIosNewIcon className="arrow-circle" fontSize="large" />
         </button>
-        <Details
-          name={pokemon.name}
-          id={pokemon.id}
-          img={pokemon.img}
-          description={pokemon.description}
-          stats={pokemon.stats}
-          info={pokemon.info}
-        />
-        <button className="btn-arrow" onClick={increaseId}>
-          <ArrowForwardIosIcon fontSize="large" />
+        <button className=" btn-arrow btn-arrow-right" onClick={increaseId}>
+          <ArrowForwardIosIcon className="arrow-circle" fontSize="large" />
         </button>
       </div>
+      <Details
+        name={pokemon.name}
+        id={pokemon.id}
+        img={pokemon.img}
+        description={pokemon.description}
+        stats={pokemon.stats}
+        info={pokemon.info}
+        types={pokemon.types}
+        weaknesses={pokemon.weaknesses}
+      />
     </div>
   );
 }

@@ -1,0 +1,29 @@
+.type {
+  text-align: left;
+  margin: 5em 0.25em 3em;
+}
+
+.type > h2 {
+  font-weight: normal;
+  font-size: 3rem;
+}
+
+.btn-type {
+  padding: 0;
+  margin: 1em 0.2em;
+  font-size: 2.75rem;
+}
+
+@media (min-width: 1450px) {
+  .type {
+    margin: 2em 1em;
+  }
+
+  .type > h2 {
+    font-size: 2.25rem;
+  }
+
+  .btn-type {
+    font-size: 2rem;
+  }
+}

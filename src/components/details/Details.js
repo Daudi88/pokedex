@@ -2,6 +2,7 @@ import React from "react";
 import Gauge from "../gauge/Gauge";
 import "./Details.css";
 import Info from "../info/Info";
+import Type from "../type/Type";
 
 function Details(props) {
   return (
@@ -28,6 +29,9 @@ function Details(props) {
           <Info name="Weight" value={props.info.weight} unit="kg" />
         </div>
         <Info name="Abilities" values={props.info.abilities} />
+      </div>
+      <div className="types-wrapper">
+        <Type types={props.types} />
       </div>
     </div>
   );
