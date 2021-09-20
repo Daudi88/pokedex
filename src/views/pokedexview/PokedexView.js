@@ -6,6 +6,8 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import Details from "../../components/details/Details";
 import capitalize from "../../shared/functions/capitalize";
 import "./PokedexView.css";
+import Loader from "../../components/loader/Loader";
+import { style } from "@mui/system";
 
 function getSessionStorageOrDefault() {
   const stored = sessionStorage.getItem("pokemonId");
@@ -20,18 +22,11 @@ function PokedexView() {
   const [pokemonId, setPokemonId] = useState(getSessionStorageOrDefault());
 
   const [pokemon, setPokemon] = useState({
-    name: "", // name
-    id: "", // id
-    img: "", // sprites.other.official-artwork.front_default
-    description: "", // flavor_text_entries[0].flavor_text
-    stats: {
-      hp: "",
-      attack: "",
-      defense: "",
-      specialAttack: "",
-      specialDefense: "",
-      speed: "",
-    },
+    name: "",
+    id: "",
+    img: "",
+    description: "",
+    stats: [],
     info: {
       height: "",
       weight: "",
@@ -54,14 +49,7 @@ function PokedexView() {
         name: getName(result.data.name),
         id: getId(result.data.id),
         img: result.data.sprites.other["official-artwork"].front_default,
-        stats: {
-          hp: result.data.stats[0].base_stat,
-          attack: result.data.stats[1].base_stat,
-          defense: result.data.stats[2].base_stat,
-          specialAttack: result.data.stats[3].base_stat,
-          specialDefense: result.data.stats[4].base_stat,
-          speed: result.data.stats[5].base_stat,
-        },
+        stats: result.data.stats,
         info: {
           height: result.data.height,
           weight: result.data.weight,
@@ -80,17 +68,20 @@ function PokedexView() {
       });
 
       sessionStorage.setItem("pokemonId", JSON.stringify(pokemonId));
+      hideLoader();
     } catch (error) {
       console.log(error);
     }
   }
 
+  function hideLoader() {
+    document.getElementById("loader").style.display = "none";
+  }
+
   function getName(name) {
-    if (name.includes("-f")) {
-      console.log("female ♀");
+    if (name === "nidoran-f") {
       name = name.replace("-f", "♀");
-    } else if (name.includes("-m")) {
-      console.log("male ♂");
+    } else if (name === "nidoran-m") {
       name = name.replace("-m", "♂");
     }
 
@@ -130,9 +121,11 @@ function PokedexView() {
 
   const location = useLocation();
   return (
-    <div className="view-wrapper">
-      {/* <h1>This is the Pokedex View!</h1>
-      <p>{location.state}</p> */}
+    <div className="view-container">
+      <div className="sub-container">
+        <h1>Welcome to the Pokedex!</h1>
+        <p>{location.state}</p>
+      </div>
       <div className="arrows-container">
         <button className="btn-arrow btn-arrow-left" onClick={decreaseId}>
           <ArrowBackIosNewIcon className="arrow-circle" fontSize="large" />
@@ -141,6 +134,7 @@ function PokedexView() {
           <ArrowForwardIosIcon className="arrow-circle" fontSize="large" />
         </button>
       </div>
+      <Loader />
       <Details
         name={pokemon.name}
         id={pokemon.id}

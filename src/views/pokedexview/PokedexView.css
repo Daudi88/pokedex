@@ -1,9 +1,3 @@
-.view-wrapper {
-  text-align: center;
-  height: 85vh;
-  position: relative;
-}
-
 .arrows-container {
   text-align: center;
   margin: 0 auto;
@@ -16,7 +10,7 @@
   background-color: var(--clr-secondary-light);
   color: #fff;
   cursor: pointer;
-  padding: 3em;
+  padding: 1.5em;
   width: 49.5%;
 }
 
@@ -28,10 +22,4 @@
 .btn-arrow:hover,
 .btn-arrow:focus {
   background-color: var(--clr-primary-blue);
-}
-
-@media (min-width: 1450px) {
-  .arrows-container {
-    width: 90em;
-  }
 }

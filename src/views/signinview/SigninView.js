@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useHistory, useLocation } from "react-router";
+import Loader from "../../components/loader/Loader";
 import RoutingPath from "../../routes/RoutingPath";
 import { UserContext } from "../../shared/Provider/UserProvider";
 import "./SigninView.css";
@@ -15,6 +16,7 @@ function SigninView() {
   function login(event) {
     const user = JSON.parse(localStorage.getItem("authenticatedUser"));
     if (user && username === user.username && password === user.password) {
+      setAuthenticatedUser(true);
       history.push(RoutingPath.pokedexView, "You are now signed in");
     } else {
       setShowErrorMessage(true);
@@ -22,12 +24,23 @@ function SigninView() {
     }
   }
 
-  function register() {}
+  function register() {
+    const user = {
+      username: username,
+      password: password,
+    };
+
+    localStorage.setItem("authenticatedUser", JSON.stringify(user));
+    setAuthenticatedUser(true);
+    history.push(RoutingPath.pokedexView, "You are now registered");
+  }
 
   return (
-    <div className="view-wrapper">
-      <h1>This is the Signin View!</h1>
-      <p>{location.state}</p>
+    <div className="view-container">
+      <div className="sub-container">
+        <h1>Please Sign in!</h1>
+        <p>{location.state}</p>
+      </div>
       <form className="signin-form">
         <input
           className="signin-input"

@@ -1,5 +1,5 @@
 nav {
-  background-color: var(--clr-secondary-dark);
+  background-color: var(--clr-secondary);
   color: var(--clr-secondary);
   display: flex;
   flex-direction: row;
@@ -7,10 +7,12 @@ nav {
   gap: 0.5em;
   padding: 1em;
   padding-left: 2em;
+  width: 100%;
+  margin: 0;
 }
 
 .brand {
-  width: 12em;
+  width: 10em;
 }
 
 .btn-nav {

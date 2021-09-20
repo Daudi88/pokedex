@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   width: 30em;
-  margin: 2em auto;
-  background-color: #fff;
+  margin: 2em auto 10em;
+  background-color: var(--clr-secondary);
   border-radius: 20px;
   padding: 4em;
   gap: 2em;
@@ -12,8 +12,9 @@
 .signin-input {
   font-family: "Flexo-Regular";
   border: none;
-  border-bottom: 1px solid var(--clr-accent-light);
-  color: var(--clr-accent-light);
+  border-radius: 5px;
+  border-bottom: 1px solid var(--clr-secondary-light);
+  color: var(--clr-secondary-light);
   font-size: 1.25rem;
   padding: 0.5em;
 }

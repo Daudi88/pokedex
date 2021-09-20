@@ -35,3 +35,14 @@ li {
   z-index: 1;
   border: none;
 }
+
+@media (min-width: 960px) {
+  .gauge-name {
+    font-size: 0.6rem;
+  }
+
+  li {
+    height: 0.5em;
+    border-bottom: 0.15em solid var(--clr-secondary-light);
+  }
+}

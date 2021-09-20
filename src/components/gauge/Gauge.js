@@ -21,7 +21,7 @@ function Gauge(props) {
     } else if (value < 140) {
       return "46%"; // 8
     } else if (value < 154) {
-      return "42%"; // 9
+      return "40%"; // 9
     } else if (value < 180) {
       return "32%"; // 10
     } else if (value < 250) {

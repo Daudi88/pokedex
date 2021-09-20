@@ -3,13 +3,17 @@ import capitalize from "../../shared/functions/capitalize";
 import "./Info.css";
 
 function Info(props) {
+  function getTrueValue(value) {
+    return value / 10;
+  }
+
   return (
     <div className="info">
       <h4>{props.name}</h4>
 
       {props.value ? (
         <p>
-          {props.value} {props.unit ? props.unit : null}
+          {getTrueValue(props.value)} {props.unit ? props.unit : null}
         </p>
       ) : null}
 

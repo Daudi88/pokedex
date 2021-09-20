@@ -6,31 +6,28 @@ import Type from "../type/Type";
 
 function Details(props) {
   return (
-    <div className="details-wrapper">
+    <div className="details-container">
       <h2 className="details-title">
         {props.name} <span className="details-id">{props.id}</span>
       </h2>
       <img className="details-img" src={props.img} alt="" />
-      <div className="stats-wrapper">
+      <div className="stats-container">
         <h3 className="stats-title">Stats</h3>
         <ul className="stats-table">
-          <Gauge value={props.stats.hp} name="HP" />
-          <Gauge value={props.stats.attack} name="Attack" />
-          <Gauge value={props.stats.defense} name="Defense" />
-          <Gauge value={props.stats.specialAttack} name="Special Attack" />
-          <Gauge value={props.stats.specialDefense} name="Special Defence" />
-          <Gauge value={props.stats.speed} name="Speed" />
+          {props.stats.map((stat) => {
+            return <Gauge value={stat.base_stat} name={stat.stat.name} />;
+          })}
         </ul>
       </div>
       <p className="details-description">{props.description}</p>
-      <div className="info-wrapper">
+      <div className="info-container">
         <div>
           <Info name="Height" value={props.info.height} unit="m" />
           <Info name="Weight" value={props.info.weight} unit="kg" />
         </div>
         <Info name="Abilities" values={props.info.abilities} />
       </div>
-      <div className="types-wrapper">
+      <div className="types-container">
         <Type types={props.types} />
       </div>
     </div>

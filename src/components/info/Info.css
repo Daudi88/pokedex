@@ -1,5 +1,5 @@
 .info {
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
 }
 
 .info > h4 {
@@ -13,12 +13,13 @@
   margin-right: 1.5em;
 }
 
-@media (min-width: 1450px) {
+@media (min-width: 960px) {
   .info > h4 {
-    font-size: 1.75rem;
+    font-size: 1rem;
+    margin-bottom: 0.5em;
   }
 
   .info > p {
-    font-size: 2rem;
+    font-size: 1.25rem;
   }
 }
