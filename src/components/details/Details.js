@@ -14,8 +14,15 @@ function Details(props) {
       <div className="stats-container">
         <h3 className="stats-title">Stats</h3>
         <ul className="stats-table">
-          {props.stats.map((stat) => {
-            return <Gauge value={stat.base_stat} name={stat.stat.name} />;
+          {props.stats.map((stat, index) => {
+            return (
+              <Gauge
+                key={index}
+                value={stat.base_stat}
+                name={stat.stat.name}
+                animationDelay={index}
+              />
+            );
           })}
         </ul>
       </div>

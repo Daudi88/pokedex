@@ -57,7 +57,7 @@ function SigninView() {
           onChange={(event) => setPassword(event.target.value)}
         ></input>
         <p style={{ display: showErrorMessage ? "block" : "none" }}>
-          Login Details are wrong
+          Login details are wrong
         </p>
         <div className="btns">
           <button className="btn btn-login" onClick={login}>

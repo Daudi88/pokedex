@@ -31,9 +31,11 @@ li {
 .meter {
   background-color: var(--clr-primary-blue);
   height: 120%;
+  width: 120%;
   position: absolute;
   z-index: 1;
   border: none;
+  top: 100%;
 }
 
 @media (min-width: 960px) {
@@ -44,5 +46,18 @@ li {
   li {
     height: 0.5em;
     border-bottom: 0.15em solid var(--clr-secondary-light);
+  }
+}
+
+@keyframes fadein {
+  0% {
+    transform: translateY(100px);
+  }
+  75% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
   }
 }

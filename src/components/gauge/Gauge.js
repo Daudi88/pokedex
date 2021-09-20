@@ -1,8 +1,8 @@
-import { unstable_getThemeValue } from "@mui/system";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Gauge.css";
 
 function Gauge(props) {
+  const [isAnimate, setIsAnimate] = useState(false);
   function getValue(value) {
     if (value < 20) {
       return "92%"; // 1
@@ -31,10 +31,24 @@ function Gauge(props) {
     }
   }
 
+  useEffect(() => {
+    setIsAnimate(true);
+    console.log("I want to be true");
+  }, []);
+
   return (
-    <li>
+    <li key={Math.random()}>
       <ul className="gauge">
-        <li className="meter" style={{ top: getValue(props.value) }}></li>
+        <li
+          id="meter"
+          className="meter"
+          style={{
+            top: getValue(props.value),
+            animationName: isAnimate ? "fadein" : "unset",
+            animationDuration: "2s",
+            animationDelay: props.animationDelay,
+          }}
+        ></li>
         <li></li>
         <li></li>
         <li></li>
