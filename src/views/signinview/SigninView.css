@@ -13,7 +13,6 @@
   font-family: "Flexo-Regular";
   border: none;
   border-radius: 5px;
-  border-bottom: 1px solid var(--clr-secondary-light);
   color: var(--clr-secondary-light);
   font-size: 1.25rem;
   padding: 0.5em;

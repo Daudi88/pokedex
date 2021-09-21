@@ -1,14 +1,14 @@
 import React from "react";
-import UserProvider from "../../shared/Provider/UserProvider";
+import PokemonProvider from "../../shared/Provider/PokemonProvider";
 import Routes from "../../routes/Routes";
 import "./App.css";
 
-function App() {
+const App = () => {
   return (
-    <UserProvider>
+    <PokemonProvider>
       <Routes />
-    </UserProvider>
+    </PokemonProvider>
   );
-}
+};
 
 export default App;

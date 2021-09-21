@@ -1,27 +1,18 @@
 nav {
-  background-color: var(--clr-secondary);
-  color: var(--clr-secondary);
+  background-color: var(--clr-primary-light);
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 0.5em;
-  padding: 1em;
-  padding-left: 2em;
+  justify-content: center;
   width: 100%;
   margin: 0;
 }
 
 .brand {
   width: 10em;
+  padding: 0.5em;
+  margin: 0 auto;
 }
 
-.btn-nav {
-  position: absolute;
-  right: 1em;
-  margin-inline: 2em;
-  background-color: var(--clr-warning);
-}
-
-.btn-nav:hover {
-  background-color: var(--clr-warning-dark);
+.brand:hover {
+  cursor: pointer;
+  background-color: var(--clr-red);
 }

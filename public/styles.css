@@ -1,13 +1,14 @@
 :root {
-  --clr-primary-green: #4dad5b;
-  --clr-primary-green-dark: #369143;
-  --clr-primary-blue: #30a7d7;
-  --clr-primary-blue-dark: #1b82b1;
-  --clr-secondary-dark: #2f2f2f;
-  --clr-secondary: #f2f2f2;
-  --clr-secondary-light: #a4a4a4;
-  --clr-warning: #ee6b2f;
-  --clr-warning-dark: #e3350d;
+  --clr-primary: #a4a4a4;
+  --clr-primary-light: #f2f2f2;
+  --clr-primary-dark: #2f2f2f;
+  --clr-green: #4dad5b;
+  --clr-green-dark: #369143;
+  --clr-blue: #30a7d7;
+  --clr-blue-dark: #1b82b1;
+  --clr-orange: #ee6b2f;
+  --clr-orange-dark: #da471b;
+  --clr-red: #e3350d;
 
   --clr-type-bug: #729f3f;
   --clr-type-dragon: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
@@ -44,12 +45,8 @@ body {
 .btn {
   border: none;
   cursor: pointer;
-  font-size: 1.5rem;
   font-family: "Flexo-Regular";
   color: var(--clr-secondary);
-  border-radius: 10px;
-  width: 6em;
-  height: 1.5em;
 }
 
 .btn:hover {
@@ -62,7 +59,7 @@ body {
   background-color: #fff;
   background-image: url("https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png");
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0 auto;
 }
 

@@ -1,0 +1,25 @@
+.arrows-container {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  background-color: #fff;
+}
+
+.btn-arrow {
+  border: none;
+  background-color: var(--clr-primary);
+  color: #fff;
+  cursor: pointer;
+  padding: 1.5em;
+  width: 49.5%;
+}
+
+.btn-arrow-left {
+  float: left;
+  margin-right: 1%;
+}
+
+.btn-arrow:hover,
+.btn-arrow:focus {
+  background-color: var(--clr-blue);
+}

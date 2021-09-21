@@ -1,7 +1,6 @@
 const RoutingPath = {
-  signinView: "/",
-  pokedexView: "/pokedex",
-  favoritesView: "/favorites",
+  pokedexView: "/",
+  detailsView: "/details",
 };
 
 export default RoutingPath;

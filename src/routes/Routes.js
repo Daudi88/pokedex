@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Navbar from "../components/navbar/Navbar";
 import RoutingPath from "./RoutingPath";
 import PokedexView from "../views/pokedexview/PokedexView";
-import SigninView from "../views/signinview/SigninView";
+import DetailsView from "../views/detailsview/DetailsView";
 import TestView from "../views/testview/TestView";
 
 function Routes() {
@@ -14,11 +14,11 @@ function Routes() {
         <Route exact path={"/test"}>
           <TestView />
         </Route>
-        <Route exact path={RoutingPath.pokedexView}>
-          <PokedexView />
+        <Route exact path={RoutingPath.detailsView}>
+          <DetailsView />
         </Route>
-        <Route path={RoutingPath.signinView}>
-          <SigninView />
+        <Route path={RoutingPath.pokedexView}>
+          <PokedexView />
         </Route>
       </Switch>
     </BrowserRouter>

@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { useHistory, useLocation } from "react-router";
-import Loader from "../../components/loader/Loader";
 import RoutingPath from "../../routes/RoutingPath";
 import { UserContext } from "../../shared/Provider/UserProvider";
 import "./SigninView.css";

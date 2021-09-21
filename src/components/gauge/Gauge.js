@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./Gauge.css";
 
-function Gauge(props) {
-  const [isAnimate, setIsAnimate] = useState(false);
+const Gauge = (props) => {
   function getValue(value) {
     if (value < 20) {
       return "92%"; // 1
@@ -31,23 +30,13 @@ function Gauge(props) {
     }
   }
 
-  useEffect(() => {
-    setIsAnimate(true);
-    console.log("I want to be true");
-  }, []);
-
   return (
     <li key={Math.random()}>
       <ul className="gauge">
         <li
           id="meter"
           className="meter"
-          style={{
-            top: getValue(props.value),
-            animationName: isAnimate ? "fadein" : "unset",
-            animationDuration: "2s",
-            animationDelay: props.animationDelay,
-          }}
+          style={{ top: getValue(props.value) }}
         ></li>
         <li></li>
         <li></li>
@@ -68,6 +57,6 @@ function Gauge(props) {
       <span className="gauge-name">{props.name}</span>
     </li>
   );
-}
+};
 
 export default Gauge;

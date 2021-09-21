@@ -1,73 +1,20 @@
-.loader-container {
-  display: grid;
-  justify-content: center;
-  align-items: center;
+.loader {
+  background: url("https://assets.pokemon.com/static2/_ui/img/chrome/loaders/pokeball_gray.png")
+    center center no-repeat;
+  background-size: 32px;
+  width: 32px;
+  height: 32px;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 10;
+  left: 49%;
+  top: 30%;
+  animation: loader 1s ease forwards infinite;
 }
 
-.middle {
-  background-color: var(--clr-secondary-dark);
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  transform-origin: center;
-  animation: rotate 2s ease forwards infinite;
-}
-
-.circle {
-  background-color: var(--clr-secondary-dark);
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  position: relative;
-}
-
-.circle:nth-child(1) {
-  left: -50px;
-  animation: slideleft 2s ease forwards infinite;
-}
-
-.circle:nth-child(2) {
-  left: 50px;
-  top: -15px;
-  animation: slideright 2s ease forwards infinite;
-}
-
-@keyframes rotate {
+@keyframes loader {
   0% {
-    transform: rotate(0deg);
-  }
-  50% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
-  }
-}
-
-@keyframes slideleft {
-  0% {
-    transform: translateX(0px);
-  }
-  25% {
-    transform: translateX(-50px);
-  }
-  50% {
-    transform: translateX(0px);
-  }
-}
-
-@keyframes slideright {
-  0% {
-    transform: translateX(0px);
-  }
-  25% {
-    transform: translateX(50px);
-  }
-  50% {
-    transform: translateX(0px);
   }
 }

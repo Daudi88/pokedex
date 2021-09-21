@@ -27,13 +27,3 @@
   font-family: "Flexo-Bold";
   src: url("../../shared/fonts/flexo/Flexo-Bold.ttf");
 }
-
-@font-face {
-  font-family: "Pokemon-Hollow";
-  src: url("../../shared/fonts/pokemon/Pokemon-Hollow.ttf");
-}
-
-@font-face {
-  font-family: "Pokemon-Solid";
-  src: url("../../shared/fonts/pokemon/Pokemon-Solid.ttf");
-}

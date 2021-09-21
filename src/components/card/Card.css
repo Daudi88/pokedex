@@ -1,0 +1,46 @@
+.card-container {
+  text-align: left;
+  width: 80%;
+  margin-bottom: 3em;
+}
+
+.card-container:hover {
+  animation: bounce 0.25s ease;
+}
+
+.card-container:hover {
+  cursor: pointer;
+}
+
+.card-img {
+  width: 14em;
+  background-color: var(--clr-primary-light);
+  border-radius: 5px;
+  padding: 1em;
+}
+
+.card-info-container {
+  margin-left: 0.5em;
+}
+
+.card-id {
+  font-weight: bold;
+  color: var(--clr-primary);
+}
+
+.card-name {
+  font-size: 1.45rem;
+  margin-bottom: 0.25em;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

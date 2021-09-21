@@ -29,13 +29,14 @@ li {
 }
 
 .meter {
-  background-color: var(--clr-primary-blue);
+  background-color: var(--clr-blue);
   height: 120%;
-  width: 120%;
+  width: 105%;
   position: absolute;
   z-index: 1;
   border: none;
   top: 100%;
+  animation: fadein 2s;
 }
 
 @media (min-width: 960px) {
@@ -45,7 +46,7 @@ li {
 
   li {
     height: 0.5em;
-    border-bottom: 0.15em solid var(--clr-secondary-light);
+    border-bottom: 0.15em solid var(--clr-primary);
   }
 }
 
