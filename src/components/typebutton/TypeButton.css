@@ -2,7 +2,6 @@
   border: none;
   font-family: "Flexo-Medium";
   margin: 0;
-  margin-right: 0.45em;
   margin-bottom: 0.45em;
   border-radius: 5px;
   cursor: default;
@@ -16,7 +15,7 @@
 
 .btn-details {
   font-size: 1rem;
-  width: 8.5em;
+  width: 8.3em;
   height: 2em;
   color: #fff !important;
 }

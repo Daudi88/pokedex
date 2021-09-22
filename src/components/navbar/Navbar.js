@@ -6,7 +6,7 @@ import "./Navbar.css";
 const Navbar = () => {
   const history = useHistory();
   return (
-    <nav>
+    <nav className="navbar">
       <div className="navbar-container">
         <img
           className="brand"

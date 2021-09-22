@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useLocation } from "react-router";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import Details from "../../components/details/Details";
 import Loader from "../../components/loader/Loader";
 import { PokemonContext } from "../../shared/Provider/PokemonProvider";
@@ -10,6 +10,7 @@ import checkName from "../../shared/functions/checkName";
 import increaseId from "../../shared/functions/increaseId";
 import decreaseId from "../../shared/functions/decreaseId";
 import calculateWeaknesses from "../../shared/functions/calculateWeaknesses";
+import formatId from "../../shared/functions/formatId";
 import "./DetailsView.css";
 
 const DetailsView = () => {
@@ -24,6 +25,10 @@ const DetailsView = () => {
   const [pokemon, setPokemon] = useState(
     pokemons.filter((pokemon) => pokemon.id === pokemonId)[0]
   );
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     setPokemon(pokemons.filter((pokemon) => pokemon.id === pokemonId)[0]);
@@ -57,7 +62,7 @@ const DetailsView = () => {
   const getDescriptionEntry = (entries) => {
     const language = "en";
     const entry = entries.filter((entry) => entry.language.name === language);
-    return entry[0].flavor_text.replace("\f", "");
+    return entry[0].flavor_text.replace("\f", " ");
   };
 
   const fetchFirstDamageRelation = () => {
@@ -102,7 +107,6 @@ const DetailsView = () => {
     }
     return (
       <Details
-        name={pokemon.name}
         id={pokemon.id}
         img={pokemon.img}
         description={description}
@@ -121,14 +125,20 @@ const DetailsView = () => {
           className="btn-arrow btn-arrow-left"
           onClick={() => setPokemonId(decreaseId(pokemonId, 1))}
         >
-          <ArrowBackIosNewIcon className="arrow-circle" fontSize="large" />
+          <KeyboardArrowLeftIcon className="arrow-left" fontSize="small" />
         </button>
         <button
           className=" btn-arrow btn-arrow-right"
           onClick={() => setPokemonId(increaseId(pokemonId, 1))}
         >
-          <ArrowForwardIosIcon className="arrow-circle" fontSize="large" />
+          <KeyboardArrowRightIcon className="arrow-right" fontSize="small" />
         </button>
+        <div className="details-title">
+          <div className="details-title-inner">
+            {pokemon?.name}{" "}
+            <span className="details-id">{formatId(pokemon?.id)}</span>
+          </div>
+        </div>
       </div>
       <div className="body-container">{showDetails()}</div>
     </div>

@@ -4,6 +4,7 @@
   justify-content: space-between;
   width: 100%;
   background-color: #fff;
+  position: relative;
 }
 
 .btn-arrow {
@@ -11,18 +12,96 @@
   background-color: var(--clr-grey);
   cursor: pointer;
   padding: 1.5em;
-  width: 49.5%;
+  width: 49.8%;
+  height: 9em;
+  position: relative;
 }
 
-.btn-arrow-left {
-  border-radius: 0 0 0 10px;
+.arrow-left {
+  position: absolute;
+  top: 1em;
+  left: 32%;
+  z-index: 50;
+  color: #616161;
 }
 
-.btn-arrow-right {
-  border-radius: 0 0 10px 0;
+.btn-arrow-left::after {
+  content: " ";
+  width: 25px;
+  height: 25px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 40;
+  top: 1.35em;
+  left: 31.8%;
+}
+
+.arrow-right {
+  position: absolute;
+  top: 1em;
+  right: 32%;
+  z-index: 50;
+  color: #616161;
+}
+
+.btn-arrow-right::after {
+  content: " ";
+  width: 25px;
+  height: 25px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 40;
+  top: 1.35em;
+  right: 31.8%;
 }
 
 .btn-arrow:hover,
 .btn-arrow:focus {
   background-color: var(--clr-blue);
+}
+
+.details-title::before,
+.details-title::after {
+  bottom: 0;
+  content: " ";
+  position: absolute;
+  height: 52px;
+  width: 6em;
+}
+
+.details-title::before {
+  background: transparent url("../../shared/img/notch-white-left.png") no-repeat;
+  left: -75px;
+}
+
+.details-title::after {
+  background: transparent url("../../shared/img/notch-white-right.png")
+    no-repeat;
+  background-position: right top;
+  right: -75px;
+}
+
+.details-title {
+  width: 60%;
+  height: 51.25px;
+  background-color: #fff;
+  position: absolute;
+  top: 4.33em;
+  left: 20%;
+  z-index: 3;
+}
+
+.details-title-inner {
+  font-family: "Flexo-Medium";
+  font-size: 2.25rem;
+  padding-top: 0.5em;
+  font-weight: lighter;
+  width: 100%;
+  background-color: #fff;
+}
+
+.details-id {
+  color: #616161;
 }

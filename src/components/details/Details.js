@@ -5,7 +5,6 @@ import Gauge from "../gauge/Gauge";
 import Info from "../info/Info";
 import Type from "../type/Type";
 import Weaknesses from "../weaknesses/Weaknesses";
-import formatId from "../../shared/functions/formatId";
 import "./Details.css";
 
 const Details = (props) => {
@@ -13,9 +12,6 @@ const Details = (props) => {
 
   return (
     <div className="details-container">
-      <h2 className="details-title">
-        {props.name} <span className="details-id">{formatId(props.id)}</span>
-      </h2>
       <img className="details-img" src={props.img} alt="" />
       <div className="stats-container">
         <h3 className="stats-title">Stats</h3>

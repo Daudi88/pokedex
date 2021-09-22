@@ -89,7 +89,7 @@ const PokedexView = () => {
       <div className="heading-container">
         <h1>Welcome to the Pokedex!</h1>
       </div>
-      <div className="body-container cards-container">{displayData()}</div>
+      <div className="body-container">{displayData()}</div>
       <div className="btn-container">
         <button
           className="btn btn-load-more"

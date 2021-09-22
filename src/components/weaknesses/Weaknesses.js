@@ -6,22 +6,13 @@ const Weaknesses = (props) => {
   return (
     <div className="weaknesses-container">
       <h2 className="weaknesses-title">Weaknesses</h2>
-
-      {props.weaknesses.map((value, index) => {
-        return (
-          <TypeButton key={index} type={value} className={props.className} />
-        );
-      })}
-
-      {/* {props.weaknesses.map((values) => {
-        return (
-          <TypeButton
-            key={index}
-            type={value.type.name}
-            className={props.className}
-          />
-        );
-      })} */}
+      <div className="btns-container">
+        {props.weaknesses.map((value, index) => {
+          return (
+            <TypeButton key={index} type={value} className={props.className} />
+          );
+        })}
+      </div>
     </div>
   );
 };

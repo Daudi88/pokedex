@@ -18,4 +18,10 @@
     font-size: 1.25rem;
     margin-bottom: 0.75em;
   }
+
+  .btns-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+  }
 }
