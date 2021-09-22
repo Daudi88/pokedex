@@ -1,20 +1,20 @@
-.type-container {
+.weaknesses-container {
   text-align: left;
-  margin-block: 5em;
+  margin: 5em 0.25em 3em;
 }
 
-.type-title {
+.weaknesses-title {
   font-weight: normal;
   font-size: 3rem;
 }
 
 @media (min-width: 960px) {
-  .type-container {
+  .weaknesses-container {
     margin-block: 1em;
     padding: 0;
   }
 
-  .type-title {
+  .weaknesses-title {
     font-size: 1.25rem;
     margin-bottom: 0.75em;
   }

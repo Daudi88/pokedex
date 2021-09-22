@@ -4,8 +4,8 @@ import "./Type.css";
 
 const Type = (props) => {
   return (
-    <div className="type">
-      <h2>Type</h2>
+    <div className="type-container">
+      <h2 className="type-title">Type</h2>
       {props.types.map((value, index) => {
         return (
           <TypeButton

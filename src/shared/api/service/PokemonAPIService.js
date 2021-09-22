@@ -12,8 +12,13 @@ const getPokemonDescription = (id) => {
   return http.get(`pokemon-species/${id}`);
 };
 
+const getWeaknesses = (type) => {
+  return http.get(`type/${type}`);
+};
+
 export default {
   getPokemon,
   getPokemons,
   getPokemonDescription,
+  getWeaknesses,
 };

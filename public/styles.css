@@ -47,10 +47,11 @@ body {
   cursor: pointer;
   font-family: "Flexo-Regular";
   color: var(--clr-secondary);
+  color: #fff;
 }
 
 .btn:hover {
-  background-color: var(--clr-primary-blue-dark);
+  background-color: var(--clr-blue-dark);
 }
 
 .view-container {

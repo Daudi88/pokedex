@@ -1,4 +1,5 @@
 import React from "react";
+import capitalize from "../../shared/functions/capitalize";
 import "./Gauge.css";
 
 const Gauge = (props) => {
@@ -54,7 +55,7 @@ const Gauge = (props) => {
         <li></li>
         <li></li>
       </ul>
-      <span className="gauge-name">{props.name}</span>
+      <span className="gauge-name">{capitalize(props.name)}</span>
     </li>
   );
 };

@@ -6,7 +6,7 @@ import "./TypeButton.css";
 export const TypeButton = (props) => {
   return (
     <button
-      className={`btn btn-type ${props.className}`}
+      className={`btn-type ${props.className}`}
       style={getColors(props.type)}
     >
       {capitalize(props.type)}

@@ -10,7 +10,6 @@ const PokedexView = () => {
   const [serverData, setServerData] = useState([]);
   const [pokemons, setPokemons] = useContext(PokemonContext);
   const [offset, setOffset] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
@@ -49,7 +48,6 @@ const PokedexView = () => {
 
   const fetchPokemon = async (result) => {
     try {
-      setIsLoading(true);
       const { data } = await PokemonAPIService.getPokemon(result.name);
       const pokemon = {
         name: checkName(data.name),
@@ -65,7 +63,6 @@ const PokedexView = () => {
       };
 
       setPokemons([...pokemons, pokemon]);
-      setIsLoading(false);
       setCounter(counter + 1);
     } catch (error) {
       console.log(error);
@@ -73,7 +70,7 @@ const PokedexView = () => {
   };
 
   const displayData = () => {
-    if (isLoading) {
+    if (pokemons.length < 1) {
       return <Loader />;
     }
     return pokemons.map((pokemon, index) => (

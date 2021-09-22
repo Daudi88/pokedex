@@ -4,6 +4,7 @@ import RoutingPath from "../../routes/RoutingPath";
 import Gauge from "../gauge/Gauge";
 import Info from "../info/Info";
 import Type from "../type/Type";
+import Weaknesses from "../weaknesses/Weaknesses";
 import formatId from "../../shared/functions/formatId";
 import "./Details.css";
 
@@ -34,7 +35,9 @@ const Details = (props) => {
       </div>
       <div className="types-container">
         <Type className="btn-details" types={props.types} />
+        <Weaknesses className="btn-details" weaknesses={props.weaknesses} />
       </div>
+
       <button
         className="btn btn-go-back"
         onClick={() => history.push(RoutingPath.pokedexView)}

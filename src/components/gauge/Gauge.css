@@ -41,12 +41,12 @@ li {
 
 @media (min-width: 960px) {
   .gauge-name {
-    font-size: 0.6rem;
+    font-size: 0.75rem;
   }
 
   li {
-    height: 0.5em;
-    border-bottom: 0.15em solid var(--clr-primary);
+    height: 0.55em;
+    border-bottom: 0.2em solid var(--clr-primary);
   }
 }
 
