@@ -4,6 +4,7 @@ import Navbar from "../components/navbar/Navbar";
 import RoutingPath from "./RoutingPath";
 import PokedexView from "../views/pokedexview/PokedexView";
 import DetailsView from "../views/detailsview/DetailsView";
+import AboutView from "../views/aboutview/AboutView";
 
 function Routes() {
   return (
@@ -12,6 +13,9 @@ function Routes() {
       <Switch>
         <Route exact path={RoutingPath.detailsView}>
           <DetailsView />
+        </Route>
+        <Route exact path={RoutingPath.aboutView}>
+          <AboutView />
         </Route>
         <Route path={RoutingPath.pokedexView}>
           <PokedexView />

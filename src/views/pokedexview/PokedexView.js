@@ -86,16 +86,18 @@ const PokedexView = () => {
 
   return (
     <div className="view-container">
-      <div className="sub-container">
+      <div className="heading-container">
         <h1>Welcome to the Pokedex!</h1>
       </div>
-      <div className="cards-container">{displayData()}</div>
-      <button
-        className="btn btn-load-more"
-        onClick={() => setOffset(offset + 12)}
-      >
-        Load more Pokémon
-      </button>
+      <div className="body-container cards-container">{displayData()}</div>
+      <div className="btn-container">
+        <button
+          className="btn btn-load-more"
+          onClick={() => setOffset(offset + 12)}
+        >
+          Load more Pokémon
+        </button>
+      </div>
     </div>
   );
 };

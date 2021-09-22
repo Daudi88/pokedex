@@ -1,7 +1,7 @@
 :root {
-  --clr-primary: #a4a4a4;
-  --clr-primary-light: #f2f2f2;
-  --clr-primary-dark: #2f2f2f;
+  --clr-grey: #a4a4a4;
+  --clr-grey-dark: #2f2f2f;
+  --clr-light-white: #f2f2f2;
   --clr-green: #4dad5b;
   --clr-green-dark: #369143;
   --clr-blue: #30a7d7;
@@ -9,6 +9,7 @@
   --clr-orange: #ee6b2f;
   --clr-orange-dark: #da471b;
   --clr-red: #e3350d;
+  --clr-yellow: #e6bc2f;
 
   --clr-type-bug: #729f3f;
   --clr-type-dragon: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
@@ -46,7 +47,6 @@ body {
   border: none;
   cursor: pointer;
   font-family: "Flexo-Regular";
-  color: var(--clr-secondary);
   color: #fff;
 }
 
@@ -62,11 +62,21 @@ body {
   width: 100%;
   min-height: 100vh;
   margin: 0 auto;
+  padding: 0 4em;
 }
 
-.sub-container {
+.heading-container {
   background-color: #fff;
   padding: 2em;
+}
+
+.body-container {
+  background-color: #fff;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  gap: 1em;
+  justify-content: center;
 }
 
 @media screen and (min-width: 960px) {

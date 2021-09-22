@@ -7,7 +7,7 @@
 
 .btn-arrow {
   border: none;
-  background-color: var(--clr-primary);
+  background-color: var(--clr-grey);
   cursor: pointer;
   padding: 1.5em;
   width: 49.5%;
@@ -16,6 +16,11 @@
 .btn-arrow-left {
   float: left;
   margin-right: 1%;
+  border-radius: 0 0 0 10px;
+}
+
+.btn-arrow-right {
+  border-radius: 0 0 10px 0;
 }
 
 .btn-arrow:hover,
