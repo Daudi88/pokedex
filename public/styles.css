@@ -62,7 +62,6 @@ body {
   width: 100%;
   min-height: 100vh;
   margin: 0 auto;
-  padding: 0 4em;
 }
 
 .heading-container {
@@ -73,6 +72,7 @@ body {
 .body-container {
   background-color: #fff;
   width: 80%;
+  min-height: 100vh;
   margin: 0 auto;
   display: flex;
   gap: 1em;

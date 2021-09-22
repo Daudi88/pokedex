@@ -7,9 +7,9 @@
 }
 
 li {
-  height: 1.5em;
+  height: 0.55em;
   width: 100%;
-  border-bottom: 0.5em solid var(--clr-secondary-light);
+  border-bottom: 0.2em solid var(--clr-grey);
   color: #fff;
   list-style: none;
   background-color: transparent;
@@ -19,7 +19,7 @@ li {
 
 .gauge-name {
   color: #212121;
-  font-size: 1.5rem;
+  font-size: 0.75rem;
   font-weight: bold;
   margin: 0;
   padding: 0;
@@ -37,17 +37,6 @@ li {
   border: none;
   top: 100%;
   animation: fadein 2s;
-}
-
-@media (min-width: 960px) {
-  .gauge-name {
-    font-size: 0.75rem;
-  }
-
-  li {
-    height: 0.55em;
-    border-bottom: 0.2em solid var(--clr-primary);
-  }
 }
 
 @keyframes fadein {

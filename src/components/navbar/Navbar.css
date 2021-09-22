@@ -33,7 +33,7 @@ nav {
   width: 12em;
   font-size: 1rem;
   font-family: "flexo-demi";
-  color: var(--clr-primary-dark);
+  color: var(--clr-grey-dark);
   background-color: #fff;
   height: 107%;
   cursor: pointer;

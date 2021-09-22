@@ -14,7 +14,7 @@
 
 .card-img {
   width: 14em;
-  background-color: var(--clr-primary-light);
+  background-color: var(--clr-light-white);
   border-radius: 5px;
   padding: 1em;
 }
@@ -25,7 +25,7 @@
 
 .card-id {
   font-weight: bold;
-  color: var(--clr-primary);
+  color: var(--clr-grey);
 }
 
 .card-name {

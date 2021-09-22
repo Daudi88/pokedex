@@ -130,7 +130,7 @@ const DetailsView = () => {
           <ArrowForwardIosIcon className="arrow-circle" fontSize="large" />
         </button>
       </div>
-      {showDetails()}
+      <div className="body-container">{showDetails()}</div>
     </div>
   );
 };
