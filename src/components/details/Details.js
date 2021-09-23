@@ -29,7 +29,7 @@ const Details = (props) => {
         </div>
         <Info name="Abilities" values={props.info.abilities} />
       </div>
-      <div className="types-container">
+      <div className="details-types-container">
         <Type className="btn-details" types={props.types} />
         <Weaknesses className="btn-details" weaknesses={props.weaknesses} />
       </div>

@@ -16,15 +16,17 @@ const Card = (props) => {
       <div className="card-info-container">
         <p className="card-id">{formatId(props.id)}</p>
         <h3 className="card-name">{props.name}</h3>
-        {props.types.map((value, index) => {
-          return (
-            <TypeButton
-              className="btn-card"
-              key={index}
-              type={value.type.name}
-            />
-          );
-        })}
+        <div className="card-types-container">
+          {props.types.map((value, index) => {
+            return (
+              <TypeButton
+                className="btn-card"
+                key={index}
+                type={value.type.name}
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );

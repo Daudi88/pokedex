@@ -1,24 +1,30 @@
-const calculateWeaknesses = (damageRelations, types) => {
-  const weaknesses = new Set();
-
+const calculateWeaknesses = (damageRelations) => {
+  let weaknesses = [];
   const doubleDamageFrom = [];
-  const doubleDamageTo = [];
   const halfDamageFrom = [];
-  const halfDamageTo = [];
   const noDamageFrom = [];
-  const noDamageTo = [];
-
-  //   for (let i = 0; i < damageRelations.length; i++) {
-  //     doubleDamageFrom.push(...damageRelations[i].double_damage_from);
-  //   }
 
   damageRelations.forEach((relations) => {
     doubleDamageFrom.push(...relations.double_damage_from);
+    halfDamageFrom.push(...relations.half_damage_from);
+    noDamageFrom.push(...relations.no_damage_from);
   });
 
-  //   console.log(damageRelations);
-  console.log(doubleDamageFrom);
-  return ["fire", "psychic", "flying", "ice"];
+  doubleDamageFrom.forEach((type) => {
+    if (!weaknesses.includes(type.name)) {
+      weaknesses.push(type.name);
+    }
+  });
+
+  halfDamageFrom.forEach((type) => {
+    weaknesses = weaknesses.filter((weakness) => weakness !== type.name);
+  });
+
+  noDamageFrom.forEach((type) => {
+    weaknesses = weaknesses.filter((weakness) => weakness !== type.name);
+  });
+
+  return weaknesses;
 };
 
 export default calculateWeaknesses;

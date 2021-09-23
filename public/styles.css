@@ -28,6 +28,7 @@
   --clr-type-poison: #b97fc9;
   --clr-type-rock: #a38c21;
   --clr-type-water: #4592c4;
+  --clr-type-dark: #707070;
 }
 
 *,
@@ -63,7 +64,7 @@ img {
   position: relative;
   background-color: #fff;
   background-image: url("https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png");
-  width: 80em;
+  max-width: 80em;
   min-height: 100vh;
   margin: 0 auto;
   padding-top: 6em;
@@ -78,7 +79,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   background-color: #fff;
-  width: 70%;
+  width: 56em;
   margin: 0 auto;
   padding: 1em;
   display: flex;

@@ -85,7 +85,7 @@ const DetailsView = () => {
     try {
       const { data } = await PokemonAPIService.getPokemon(pokemonId);
       setPokemon({
-        name: checkName(data.name),
+        name: checkName(data.species.name),
         id: data.id,
         img: data.sprites.other["official-artwork"].front_default,
         stats: data.stats,
@@ -113,7 +113,7 @@ const DetailsView = () => {
         stats={pokemon.stats}
         info={pokemon.info}
         types={pokemon.types}
-        weaknesses={calculateWeaknesses(damageRelations, pokemon.types)}
+        weaknesses={calculateWeaknesses(damageRelations)}
       />
     );
   };

@@ -33,6 +33,11 @@
   margin-bottom: 0.25em;
 }
 
+.card-types-container {
+  display: flex;
+  gap: 0.25em;
+}
+
 @keyframes bounce {
   0% {
     transform: translateY(0);

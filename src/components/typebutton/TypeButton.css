@@ -1,6 +1,5 @@
 .btn-type {
   border: none;
-  font-family: "Flexo-Medium";
   margin: 0;
   margin-bottom: 0.45em;
   border-radius: 5px;
@@ -11,9 +10,11 @@
   font-size: 0.8rem;
   width: 6em;
   height: 1.5em;
+  border-radius: 3px;
 }
 
 .btn-details {
+  font-weight: lighter;
   font-size: 1rem;
   width: 8.3em;
   height: 2em;
