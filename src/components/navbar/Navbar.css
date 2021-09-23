@@ -7,8 +7,8 @@
   justify-content: center;
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
-  z-index: 4;
+  top: -2px;
+  z-index: 100;
 }
 
 .nav-link {

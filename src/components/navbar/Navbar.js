@@ -12,20 +12,23 @@ const Navbar = () => {
 
   useEffect(() => {
     switch (location.pathname) {
-      case RoutingPath.pokedexView:
-        setIsPokedexActive(true);
-        break;
       case RoutingPath.detailsView:
+        setIsPokedexActive(false);
+        setIsAboutActive(false);
         setIsDetailsActive(true);
         break;
       case RoutingPath.aboutView:
+        setIsPokedexActive(false);
+        setIsDetailsActive(false);
         setIsAboutActive(true);
         break;
       default:
+        setIsDetailsActive(false);
+        setIsAboutActive(false);
         setIsPokedexActive(true);
         break;
     }
-  }, []);
+  }, [location]);
 
   const pokedexColors = {
     background: isPokedexActive && "var(--clr-red)",
