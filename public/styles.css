@@ -67,10 +67,10 @@ img {
   max-width: 80em;
   min-height: 100vh;
   margin: 0 auto;
-  padding-top: 6em;
 }
 
 .heading-container {
+  border-top: 2px solid var(--clr-light-white);
   background-color: #fff;
   padding: 2em;
 }

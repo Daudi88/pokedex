@@ -1,15 +1,14 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Navbar from "../components/navbar/Navbar";
 import RoutingPath from "./RoutingPath";
 import PokedexView from "../views/pokedexview/PokedexView";
 import DetailsView from "../views/detailsview/DetailsView";
 import AboutView from "../views/aboutview/AboutView";
 
-function Routes() {
+function Routes({ children }) {
   return (
     <BrowserRouter>
-      <Navbar />
+      {children}
       <Switch>
         <Route exact path={RoutingPath.detailsView}>
           <DetailsView />
