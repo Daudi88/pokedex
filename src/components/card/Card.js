@@ -23,6 +23,7 @@ const Card = (props) => {
                 className="btn-card"
                 key={index}
                 type={value.type.name}
+                isClickable={false}
               />
             );
           })}

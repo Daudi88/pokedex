@@ -1,0 +1,46 @@
+.footer-divider {
+  height: 2.5em;
+  width: 100%;
+  background-color: transparent;
+}
+
+.footer-notch {
+  width: 55em;
+  height: 0.38em;
+  background-color: #fff;
+  margin: 0 auto;
+  position: relative;
+}
+
+.footer-notch::before {
+  background: transparent
+    url("https://assets.pokemon.com/static2/_ui/img/chrome/notches/notch-top-left.png")
+    no-repeat;
+  left: -0.7em;
+}
+
+.footer-notch::after {
+  background: transparent
+    url("https://assets.pokemon.com/static2/_ui/img/chrome/notches/notch-top-right.png")
+    no-repeat;
+  right: -1em;
+}
+
+.footer-notch::before,
+.footer-notch::after {
+  top: 0;
+  content: " ";
+  position: absolute;
+  height: 1em;
+  width: 1em;
+}
+
+.footer-content {
+  background-color: var(--clr-black-dark);
+  height: 8em;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  color: var(--clr-grey);
+}

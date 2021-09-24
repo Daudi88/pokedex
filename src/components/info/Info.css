@@ -1,25 +1,16 @@
-.info {
-  margin-bottom: 1em;
-}
+@media (min-width: 1024px) {
+  .info {
+    margin-bottom: 1em;
+  }
 
-.info > h4 {
-  color: #fff;
-  font-weight: normal;
-  font-size: 2.5rem;
-}
-
-.info > p {
-  font-size: 3rem;
-  margin-right: 1.5em;
-}
-
-@media (min-width: 960px) {
   .info > h4 {
+    color: #fff;
     font-size: 1rem;
     margin-bottom: 0.5em;
   }
 
   .info > p {
     font-size: 1.25rem;
+    margin-right: 1.5em;
   }
 }

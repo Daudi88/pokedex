@@ -8,6 +8,10 @@ const getPokemons = (offset) => {
   return http.get(`pokemon?limit=12&offset=${offset}`);
 };
 
+const getAllPokemons = () => {
+  return http.get("pokemon?limit=898");
+};
+
 const getPokemonDescription = (id) => {
   return http.get(`pokemon-species/${id}`);
 };
@@ -19,6 +23,7 @@ const getWeaknesses = (type) => {
 export default {
   getPokemon,
   getPokemons,
+  getAllPokemons,
   getPokemonDescription,
   getWeaknesses,
 };

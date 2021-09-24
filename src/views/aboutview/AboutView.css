@@ -3,4 +3,57 @@
   font-size: 1.25rem;
   width: 100%;
   margin-bottom: 5em;
+  text-align: left;
+}
+
+/* .search-container {
+  width: 100%;
+  margin-bottom: 2em;
+  text-align: left;
+  background-color: var(--clr-black);
+  padding: 2em;
+}
+
+.search-container > h2 {
+  color: #fff;
+  font-weight: normal;
+  margin-bottom: 0.25em;
+}
+
+.search-container > input {
+  margin-right: 1em;
+  padding: 0.5em;
+  border-radius: 3px;
+}
+
+.search-container > button {
+  padding: 0.5em 0.7em;
+  background-color: var(--clr-orange);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.search-container > button:hover {
+  background-color: var(--clr-orange-dark);
+  cursor: pointer;
+} */
+
+.found-pokemons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 2em;
+  width: 100%;
+  min-height: 20em;
+  background-color: #fff;
+}
+
+.found-pokemons > h3 {
+  padding: 0.25em;
+}
+
+.found-pokemons > h3:hover {
+  cursor: pointer;
+  color: var(--clr-blue-dark);
 }

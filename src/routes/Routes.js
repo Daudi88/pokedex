@@ -1,14 +1,18 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Brand from "../components/brand/Brand";
+import Navbar from "../components/navbar/Navbar";
 import RoutingPath from "./RoutingPath";
 import PokedexView from "../views/pokedexview/PokedexView";
 import DetailsView from "../views/detailsview/DetailsView";
 import AboutView from "../views/aboutview/AboutView";
+import Footer from "../components/footer/Footer";
 
-function Routes({ children }) {
+function Routes() {
   return (
     <BrowserRouter>
-      {children}
+      <Brand />
+      <Navbar />
       <Switch>
         <Route exact path={RoutingPath.detailsView}>
           <DetailsView />
@@ -20,6 +24,7 @@ function Routes({ children }) {
           <PokedexView />
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

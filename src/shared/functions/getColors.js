@@ -26,11 +26,11 @@ function getColors(type) {
       break;
     case "ground":
       colors.background = "var(--clr-type-ground)";
-      colors.color = "Black";
+      colors.color = "var(--clr-black)";
       break;
     case "normal":
       colors.background = "var(--clr-type-normal";
-      colors.color = "black";
+      colors.color = "var(--clr-black)";
       break;
     case "psychic":
       colors.background = "var(--clr-type-psychic)";
@@ -38,7 +38,7 @@ function getColors(type) {
       break;
     case "steel":
       colors.background = "var(--clr-type-steel)";
-      colors.color = "black";
+      colors.color = "var(--clr-black)";
       break;
     case "dark":
       colors.background = "var(--clr-type-dark)";
@@ -46,7 +46,7 @@ function getColors(type) {
       break;
     case "electric":
       colors.background = "var(--clr-type-electric)";
-      colors.color = "black";
+      colors.color = "var(--clr-black)";
       break;
     case "fighting":
       colors.background = "var(--clr-type-fighting)";
@@ -54,15 +54,15 @@ function getColors(type) {
       break;
     case "flying":
       colors.background = "var(--clr-type-flying)";
-      colors.color = "black";
+      colors.color = "var(--clr-black)";
       break;
     case "grass":
       colors.background = "var(--clr-type-grass)";
-      colors.color = "black";
+      colors.color = "var(--clr-black)";
       break;
     case "ice":
       colors.background = "var(--clr-type-ice)";
-      colors.color = "black";
+      colors.color = "var(--clr-black)";
       break;
     case "poison":
       colors.background = "var(--clr-type-poison)";

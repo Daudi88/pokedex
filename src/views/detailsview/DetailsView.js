@@ -6,7 +6,6 @@ import Details from "../../components/details/Details";
 import Loader from "../../components/loader/Loader";
 import { PokemonContext } from "../../shared/Provider/PokemonProvider";
 import PokemonAPIService from "../../shared/api/service/PokemonAPIService";
-import checkName from "../../shared/functions/checkName";
 import increaseId from "../../shared/functions/increaseId";
 import decreaseId from "../../shared/functions/decreaseId";
 import calculateWeaknesses from "../../shared/functions/calculateWeaknesses";
@@ -15,7 +14,7 @@ import "./DetailsView.css";
 
 const DetailsView = () => {
   const location = useLocation();
-  const [pokemons] = useContext(PokemonContext);
+  const [allPokemons] = useContext(PokemonContext);
   const [pokemonId, setPokemonId] = useState(
     location.state ? location.state : 1
   );
@@ -23,23 +22,22 @@ const DetailsView = () => {
   const [description, setDescription] = useState();
   const [damageRelations, setDamageRelations] = useState([]);
   const [pokemon, setPokemon] = useState(
-    pokemons.filter((pokemon) => pokemon.id === pokemonId)[0]
+    allPokemons.filter((pokemon) => pokemon.id === pokemonId)[0]
   );
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
 
   useEffect(() => {
-    setPokemon(pokemons.filter((pokemon) => pokemon.id === pokemonId)[0]);
-    setCounter(0);
-    setDamageRelations([]);
-  }, [pokemonId]);
+    if (!pokemon) {
+      setPokemon(allPokemons.filter((pokemon) => pokemon.id === pokemonId)[0]);
+      setCounter(0);
+      setDamageRelations([]);
+    }
+  }, [pokemonId, allPokemons]);
 
   useEffect(() => {
-    if (!pokemon) {
-      fetchPokemon();
-    }
     fetchDescription();
     fetchFirstDamageRelation();
   }, [pokemon]);
@@ -81,24 +79,9 @@ const DetailsView = () => {
     }
   };
 
-  const fetchPokemon = async () => {
-    try {
-      const { data } = await PokemonAPIService.getPokemon(pokemonId);
-      setPokemon({
-        name: checkName(data.species.name),
-        id: data.id,
-        img: data.sprites.other["official-artwork"].front_default,
-        stats: data.stats,
-        info: {
-          height: data.height,
-          weight: data.weight,
-          abilities: data.abilities,
-        },
-        types: data.types,
-      });
-    } catch (error) {
-      console.log(error);
-    }
+  const changePokemon = (change) => {
+    setPokemon();
+    setPokemonId(change);
   };
 
   const showDetails = () => {
@@ -123,13 +106,13 @@ const DetailsView = () => {
       <div className="arrows-container">
         <button
           className="btn-arrow btn-arrow-left"
-          onClick={() => setPokemonId(decreaseId(pokemonId, 1))}
+          onClick={() => changePokemon(decreaseId(pokemonId, 1))}
         >
           <KeyboardArrowLeftIcon className="arrow-left" fontSize="small" />
         </button>
         <button
           className=" btn-arrow btn-arrow-right"
-          onClick={() => setPokemonId(increaseId(pokemonId, 1))}
+          onClick={() => changePokemon(increaseId(pokemonId, 1))}
         >
           <KeyboardArrowRightIcon className="arrow-right" fontSize="small" />
         </button>

@@ -30,7 +30,7 @@ const Details = (props) => {
         <Info name="Abilities" values={props.info.abilities} />
       </div>
       <div className="details-types-container">
-        <Type className="btn-details" types={props.types} />
+        <Type className="btn-details" types={props.types} isClickable={true} />
         <Weaknesses className="btn-details" weaknesses={props.weaknesses} />
       </div>
 

@@ -13,6 +13,7 @@ const Type = (props) => {
               key={index}
               type={value.type.name}
               className={props.className}
+              isClickable={props.isClickable}
             />
           );
         })}

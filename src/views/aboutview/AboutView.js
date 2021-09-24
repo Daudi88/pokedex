@@ -13,8 +13,7 @@ const AboutView = () => {
           <a href="https://reactjs.org/" target="_blank">
             React
           </a>{" "}
-          and have been heavily inspired
-          <br /> by{" "}
+          and have been heavily inspired by{" "}
           <a href="https://www.pokemon.com/us/pokedex/" target="_blank">
             this website
           </a>{" "}
