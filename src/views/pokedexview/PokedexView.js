@@ -1,18 +1,18 @@
 import React, { useContext, useEffect, useState } from "react";
-import { PokemonContext } from "../../shared/provider/PokemonProvider";
-import Card from "../../components/card/Card";
-import Loader from "../../components/loader/Loader";
-import "./PokedexView.css";
 import { useLocation } from "react-router";
+import { PokemonContext } from "../../shared/provider/PokemonProvider";
+import Loader from "../../components/loader/Loader";
+import Card from "../../components/card/Card";
+import "./PokedexView.css";
+import SearchContainer from "../../components/searchcontainer/SearchContainer";
+import ErrorContainer from "../../components/errorcontainer/ErrorContainer";
 
 const PokedexView = () => {
   const location = useLocation();
   const [allPokemons] = useContext(PokemonContext);
   const [pokemons, setPokemons] = useState([]);
   const [offset, setOffset] = useState(12);
-  const [search, setSearch] = useState(
-    location.state ? location.state : undefined
-  );
+  const [search, setSearch] = useState(location.state ? location.state : "");
   const [foundPokemons, setFoundPokemons] = useState([]);
   const [noPokemonsFound, setNoPokemonsFound] = useState(false);
 
@@ -20,7 +20,7 @@ const PokedexView = () => {
     setNoPokemonsFound(false);
     setOffset(12);
     setPokemons([]);
-    if (search?.length > 0 && allPokemons.length > 0) {
+    if (search.length > 0 && allPokemons.length > 0) {
       findPokemons();
     }
   }, []);
@@ -62,7 +62,7 @@ const PokedexView = () => {
   };
 
   const findPokemons = () => {
-    if (search?.length > 0) {
+    if (search.length > 0) {
       const matchingPokemons = allPokemons.filter(
         (pokemon) =>
           pokemon.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -108,19 +108,7 @@ const PokedexView = () => {
     if (pokemons.length < 1) {
       return <Loader />;
     } else if (noPokemonsFound) {
-      return (
-        <div className="error-container">
-          <h3>No Pokémon Matched Your Search!</h3>
-          <h4>Try these suggestions to fins a Pokémon:</h4>
-          <ul>
-            <li className="error-tip">
-              Reduce the number of search parameters
-            </li>
-            <li className="error-tip">Search only for one Pokémon at a time</li>
-            <li className="error-tip">Search for parts of the name</li>
-          </ul>
-        </div>
-      );
+      return <ErrorContainer />;
     }
     return pokemons.map((pokemon, index) => (
       <Card
@@ -138,26 +126,11 @@ const PokedexView = () => {
       <div className="heading-container">
         <h1>Pokédex!</h1>
       </div>
-      <div className="search-container">
-        <form
-          className="input-container"
-          onSubmit={(event) => searchForPokemons(event)}
-        >
-          <h2>Name or Number</h2>
-          <input
-            value={search}
-            onChange={(event) => setSearch(event.target.value)}
-          />
-          <button>
-            <i className="fas fa-search fa-lg"></i>
-          </button>
-        </form>
-        <div className="search-info">
-          <p>
-            Search for a Pokémon by name or using its National Pokédex number.
-          </p>
-        </div>
-      </div>
+      <SearchContainer
+        search={search}
+        setSearch={setSearch}
+        searchForPokemons={searchForPokemons}
+      />
       <div className="divider"></div>
       <div className="body-container">{displayData()}</div>
       <div className="btn-container">

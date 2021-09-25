@@ -1,0 +1,26 @@
+.error-container {
+  border: 2px solid var(--clr-red);
+  border-radius: 8px;
+  height: 12em;
+  width: 100%;
+  display: grid;
+  text-align: left;
+  padding: 1em;
+}
+
+.error-container > h3 {
+  color: var(--clr-red);
+  margin-bottom: 0.75em;
+}
+
+.error-container > h4 {
+  color: var(--clr-grey);
+}
+
+.error-tip {
+  border: none;
+  color: var(--clr-grey-dark);
+  list-style: disc;
+  padding: 1em;
+  margin-left: 1em;
+}

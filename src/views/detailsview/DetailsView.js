@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useLocation } from "react-router";
+import { PokemonContext } from "../../shared/provider/PokemonProvider";
+import PokemonAPIService from "../../shared/api/service/PokemonAPIService";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import Details from "../../components/details/Details";
 import Loader from "../../components/loader/Loader";
-import { PokemonContext } from "../../shared/Provider/PokemonProvider";
-import PokemonAPIService from "../../shared/api/service/PokemonAPIService";
 import increaseId from "../../shared/functions/increaseId";
 import decreaseId from "../../shared/functions/decreaseId";
 import calculateWeaknesses from "../../shared/functions/calculateWeaknesses";

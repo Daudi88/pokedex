@@ -112,7 +112,6 @@ img {
   }
 
   .heading-container {
-    border-top: 2px solid var(--clr-light-white);
     background-color: #fff;
     padding: 1.25em;
     display: flex;

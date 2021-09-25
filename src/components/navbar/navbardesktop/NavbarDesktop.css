@@ -3,6 +3,7 @@
   height: 3em;
   background-color: #fff;
   border-top: 2px solid var(--clr-light-white);
+  border-bottom: 2px solid var(--clr-light-white);
   display: flex;
   justify-content: center;
   position: -webkit-sticky;
