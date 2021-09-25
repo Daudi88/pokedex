@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { PokemonContext } from "../../shared/Provider/PokemonProvider";
+import { PokemonContext } from "../../shared/provider/PokemonProvider";
 import Card from "../../components/card/Card";
 import Loader from "../../components/loader/Loader";
 import "./PokedexView.css";
