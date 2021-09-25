@@ -1,11 +1,11 @@
 import React from "react";
-import { useMediaQuery } from "react-responsive";
 import NavbarMobile from "./navbarmobile/NavbarMobile";
 import NavbarDesktop from "./navbardesktop/NavbarDesktop";
+import useWindowDimensions from "../../shared/hooks/useWindowDimensions";
 
 const Navbar = () => {
-  const isMobile = useMediaQuery({ query: "(max-width: 959px)" });
-  return isMobile ? <NavbarMobile /> : <NavbarDesktop />;
+  const { width } = useWindowDimensions();
+  return width < 960 ? <NavbarMobile /> : <NavbarDesktop />;
 };
 
 export default Navbar;

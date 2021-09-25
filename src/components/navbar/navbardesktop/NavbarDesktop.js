@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router";
+import { NavLink } from "react-router-dom";
 import RoutingPath from "../../../routes/RoutingPath";
 import "./NavbarDesktop.css";
 
@@ -47,27 +48,27 @@ const Navbar = () => {
 
   return (
     <nav className="navbar-desktop">
-      <button
-        className="btn nav-link pokedex"
+      <NavLink
+        to={RoutingPath.pokedexView}
+        className="nav-link nav-link-pokedex"
         style={pokedexColors}
-        onClick={() => history.push(RoutingPath.pokedexView)}
       >
         <p className="nav-link-text">Pokédex</p>
-      </button>
-      <button
-        className="btn nav-link details"
+      </NavLink>
+      <NavLink
+        to={RoutingPath.detailsView}
+        className="nav-link nav-link-details"
         style={detailsColors}
-        onClick={() => history.push(RoutingPath.detailsView, 1)}
       >
         <span className="nav-link-text">Details</span>
-      </button>
-      <button
-        className="btn nav-link about"
+      </NavLink>
+      <NavLink
+        to={RoutingPath.aboutView}
+        className="nav-link nav-link-about"
         style={aboutColors}
-        onClick={() => history.push(RoutingPath.aboutView)}
       >
         <span className="nav-link-text">About</span>
-      </button>
+      </NavLink>
     </nav>
   );
 };

@@ -33,6 +33,36 @@
   --clr-type-dark: #707070;
 }
 
+@font-face {
+  font-family: "Flexo-Thin";
+  src: url("../fonts/flexo/Flexo-Thin.ttf");
+}
+
+@font-face {
+  font-family: "Flexo-Light";
+  src: url("../fonts/flexo/Flexo-Light.ttf");
+}
+
+@font-face {
+  font-family: "Flexo-Regular";
+  src: url("../fonts/flexo/Flexo-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Flexo-Medium";
+  src: url("../fonts/flexo/Flexo-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Flexo-Demi";
+  src: url("../fonts/flexo/Flexo-Demi.ttf");
+}
+
+@font-face {
+  font-family: "Flexo-Bold";
+  src: url("../fonts/flexo/Flexo-Bold.ttf");
+}
+
 *,
 *::before,
 *::after {

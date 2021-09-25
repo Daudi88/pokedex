@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Hamburger from "../../hamburger/Hamburger";
-import MobileMenu from "../../mobilemenu/MobileMenu";
+import MenuMobile from "../../menumobile/MenuMobile";
 import "./NavbarMobile.css";
 
 const NavbarMobile = () => {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (open) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+  }, [open]);
 
   return (
     <div
@@ -14,7 +22,7 @@ const NavbarMobile = () => {
       <div className="navbar-mobile">
         <Hamburger open={open} setOpen={setOpen} />
       </div>
-      <MobileMenu open={open} setOpen={setOpen} />
+      <MenuMobile open={open} setOpen={setOpen} />
     </div>
   );
 };

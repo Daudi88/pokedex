@@ -8,7 +8,7 @@ import DetailsView from "../views/detailsview/DetailsView";
 import AboutView from "../views/aboutview/AboutView";
 import Footer from "../components/footer/Footer";
 
-function Routes() {
+const Routes = () => {
   return (
     <BrowserRouter>
       <Brand />
@@ -27,6 +27,6 @@ function Routes() {
       <Footer />
     </BrowserRouter>
   );
-}
+};
 
 export default Routes;

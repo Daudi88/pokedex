@@ -1,15 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Hamburger.css";
 
 const Hamburger = (props) => {
-  useEffect(() => {
-    if (props.open) {
-      document.body.classList.add("no-scroll");
-    } else {
-      document.body.classList.remove("no-scroll");
-    }
-  }, [props.open]);
-
   const handleClick = () => {
     props.setOpen(!props.open);
   };

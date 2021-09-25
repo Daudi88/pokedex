@@ -19,6 +19,9 @@
   background-color: #fff;
   height: 3.25em;
   cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  padding-top: 0.75em;
 }
 
 .nav-link:hover,
@@ -27,31 +30,31 @@
   outline: none;
 }
 
-.pokedex {
+.nav-link-pokedex {
   border-bottom: 6px solid var(--clr-red);
   border-radius: 0 0 0 6px;
 }
 
-.pokedex:hover,
-.pokedex:focus {
+.nav-link-pokedex:hover,
+.nav-link-pokedex:focus {
   background-color: var(--clr-red);
 }
 
-.details {
+.nav-link-details {
   border-bottom: 6px solid var(--clr-green);
 }
 
-.details:hover,
-.details:focus {
+.nav-link-details:hover,
+.nav-link-details:focus {
   background-color: var(--clr-green);
 }
 
-.about {
+.nav-link-about {
   border-bottom: 6px solid var(--clr-yellow);
   border-radius: 0 0 6px 0;
 }
 
-.about:hover,
-.about:focus {
+.nav-link-about:hover,
+.nav-link-about:focus {
   background-color: var(--clr-yellow);
 }
