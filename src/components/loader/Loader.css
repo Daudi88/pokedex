@@ -6,7 +6,7 @@
   height: 32px;
   position: absolute;
   left: 49%;
-  top: 30%;
+  top: 30em;
   animation: loader 1s ease forwards infinite;
 }
 

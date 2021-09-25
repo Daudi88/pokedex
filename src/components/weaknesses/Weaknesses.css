@@ -8,7 +8,7 @@
   font-size: 3rem;
 }
 
-@media (min-width: 960px) {
+/* @media (min-width: 960px) {
   .weaknesses-container {
     margin-block: 1em;
     padding: 0;
@@ -24,4 +24,4 @@
     flex-wrap: wrap;
     gap: 0.5em;
   }
-}
+} */

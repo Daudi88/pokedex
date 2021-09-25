@@ -102,17 +102,20 @@ img {
   margin-left: 0.5em;
 }
 
+.body-container {
+  background-color: #fff;
+}
+
 @media (min-width: 1024px) {
   .view-container {
     text-align: center;
     position: relative;
     max-width: 80em;
     min-height: 100vh;
-    /* margin: 0 auto; */
+    margin: 0 auto;
   }
 
   .heading-container {
-    /* padding: 1.25em; */
     display: flex;
     justify-content: center;
     width: 56em;
@@ -129,7 +132,7 @@ img {
   .body-container {
     display: flex;
     flex-wrap: wrap;
-    background-color: #fff;
+    /* background-color: #fff; */
     width: 56em;
     margin: 0 auto;
     padding: 3em 1em 1em;

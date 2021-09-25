@@ -1,141 +1,144 @@
-.arrows-container {
-  text-align: center;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  background-color: #fff;
-  position: relative;
-}
+@media (min-width: 1025px) {
+  .arrows-container {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #fff;
+    position: relative;
+  }
 
-.btn-arrow {
-  border: none;
-  background-color: var(--clr-grey);
-  cursor: pointer;
-  padding: 1.5em;
-  width: 50%;
-  height: 120px;
-  position: relative;
-}
+  .btn-arrow {
+    border: none;
+    background-color: var(--clr-grey);
+    cursor: pointer;
+    padding: 1.5em;
+    width: 50%;
+    height: 120px;
+    position: relative;
+  }
 
-.arrow-left {
-  position: absolute;
-  top: 1em;
-  right: 20.6em;
-  z-index: 50;
-  color: #616161;
-}
+  .arrow-left {
+    position: absolute;
+    top: 1em;
+    right: 20.6em;
+    z-index: 50;
+    color: #616161;
+  }
 
-.btn-arrow-left {
-  border-right: 2px solid #fff;
-}
+  .btn-arrow-left {
+    border-right: 2px solid #fff;
+  }
 
-.btn-arrow-right {
-  border-left: 2px solid #fff;
-}
+  .btn-arrow-right {
+    border-left: 2px solid #fff;
+  }
 
-.btn-arrow-left::after {
-  content: " ";
-  width: 25px;
-  height: 25px;
-  background-color: #fff;
-  border-radius: 50%;
-  position: absolute;
-  z-index: 40;
-  top: 1.35em;
-  right: 30.7em;
-}
+  .btn-arrow-left::after {
+    content: " ";
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 40;
+    top: 1.35em;
+    right: 30.7em;
+  }
 
-.arrow-right {
-  position: absolute;
-  top: 1em;
-  left: 20.6em;
-  z-index: 50;
-  color: #616161;
-}
+  .arrow-right {
+    position: absolute;
+    top: 1em;
+    left: 20.6em;
+    z-index: 50;
+    color: #616161;
+  }
 
-.btn-arrow-right::after {
-  content: " ";
-  width: 25px;
-  height: 25px;
-  background-color: #fff;
-  border-radius: 50%;
-  position: absolute;
-  z-index: 40;
-  top: 1.35em;
-  left: 30.7em;
-}
+  .btn-arrow-right::after {
+    content: " ";
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 40;
+    top: 1.35em;
+    left: 30.7em;
+  }
 
-.btn-arrow:hover {
-  background-color: var(--clr-blue);
-}
+  .btn-arrow:hover {
+    background-color: var(--clr-blue);
+  }
 
-.prev-pokemon,
-.next-pokemon {
-  font-family: "Flexo-Demi";
-  position: absolute;
-  z-index: 160;
-  font-size: 1.5rem;
-  color: var(--clr-grey-dark);
-  width: 13em;
-  height: 1.5em;
-  top: 15px;
-}
+  .prev-pokemon,
+  .next-pokemon {
+    font-family: "Flexo-Demi";
+    position: absolute;
+    z-index: 160;
+    font-size: 1.5rem;
+    color: var(--clr-grey-dark);
+    width: 13em;
+    height: 1.5em;
+    top: 15px;
+  }
 
-.next-pokemon {
-  text-align: right;
-  left: 3.5em;
-}
+  .next-pokemon {
+    text-align: right;
+    left: 3.5em;
+  }
 
-.prev-pokemon {
-  text-align: left;
-  right: 3.5em;
-}
+  .prev-pokemon {
+    text-align: left;
+    right: 3.5em;
+  }
 
-.next-pokemon-id {
-  font-family: "Flexo-Demi";
-  color: #fff;
-}
+  .next-pokemon-id {
+    font-family: "Flexo-Demi";
+    color: #fff;
+  }
 
-.details-title {
-  width: 60%;
-  height: 51.25px;
-  background-color: #fff;
-  position: absolute;
-  top: 69px;
-  left: 20%;
-  z-index: 3;
-}
+  .details-title {
+    width: 60%;
+    height: 51.25px;
+    background-color: #fff;
+    position: absolute;
+    top: 69px;
+    left: 20%;
+    z-index: 3;
+  }
 
-.details-title::before {
-  background: transparent url("../../shared/img/notch-white-left.png") no-repeat;
-  left: -75px;
-}
+  .details-title::before {
+    background: transparent url("../../shared/img/notch-white-left.png")
+      no-repeat;
+    left: -75px;
+  }
 
-.details-title::after {
-  background: transparent url("../../shared/img/notch-white-right.png")
-    no-repeat;
-  background-position: right top;
-  right: -75px;
-}
+  .details-title::after {
+    background: transparent url("../../shared/img/notch-white-right.png")
+      no-repeat;
+    background-position: right top;
+    right: -75px;
+  }
 
-.details-title::before,
-.details-title::after {
-  bottom: 0;
-  content: " ";
-  position: absolute;
-  height: 52px;
-  width: 6em;
-}
+  .details-title::before,
+  .details-title::after {
+    bottom: 0;
+    content: " ";
+    position: absolute;
+    height: 52px;
+    width: 6em;
+  }
 
-.details-title-inner {
-  font-family: "Flexo-Medium";
-  font-size: 2.25rem;
-  padding-top: 0.5em;
-  font-weight: lighter;
-  width: 100%;
-  background-color: #fff;
-}
+  .details-title-inner {
+    font-family: "Flexo-Medium";
+    font-size: 2.25rem;
+    padding-top: 0.5em;
+    font-weight: lighter;
+    width: 100%;
+    background-color: #fff;
+  }
 
-.details-id {
-  color: var(--clr-grey-dark);
+  .details-id {
+    color: var(--clr-grey-dark);
+  }
 }
