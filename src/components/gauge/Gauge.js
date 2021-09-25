@@ -3,7 +3,7 @@ import capitalize from "../../shared/functions/capitalize";
 import "./Gauge.css";
 
 const Gauge = (props) => {
-  function getValue(value) {
+  const getValue = (value) => {
     if (value < 20) {
       return "92%"; // 1
     } else if (value < 35) {
@@ -29,7 +29,7 @@ const Gauge = (props) => {
     } else {
       return "0%"; // 15
     }
-  }
+  };
 
   return (
     <li key={Math.random()}>

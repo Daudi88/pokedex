@@ -124,7 +124,7 @@ const PokedexView = () => {
   return (
     <div className="view-container">
       <div className="heading-container">
-        <h1>Pokédex!</h1>
+        <h1>Pokédex</h1>
       </div>
       <SearchContainer
         search={search}
