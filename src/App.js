@@ -18,7 +18,9 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    getFirstPokemon();
+    if (serverData) {
+      fetchPokemon(serverData[counter]);
+    }
   }, [serverData]);
 
   useEffect(() => {
@@ -37,17 +39,11 @@ const App = () => {
     }
   };
 
-  const getFirstPokemon = () => {
-    if (serverData) {
-      fetchPokemon(serverData[counter]);
-    }
-  };
-
   const fetchPokemon = async (result) => {
     try {
       const { data } = await PokemonAPIService.getPokemon(result.name);
       const pokemon = {
-        name: checkName(data.name),
+        name: checkName(data.species.name),
         id: data.id,
         img: data.sprites.other["official-artwork"].front_default,
         stats: data.stats,

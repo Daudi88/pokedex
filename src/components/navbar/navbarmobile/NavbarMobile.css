@@ -1,0 +1,17 @@
+.navbar-mobile-container {
+  width: 100%;
+  transition: height 0.5s;
+}
+
+.navbar-mobile {
+  height: 3.6em;
+  max-width: 56em;
+  margin: 0 auto;
+  background: radial-gradient(
+    ellipse at center,
+    var(--clr-black) 0%,
+    var(--clr-black-dark) 57%
+  );
+  position: relative;
+  z-index: 10;
+}

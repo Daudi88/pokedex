@@ -9,7 +9,12 @@ const Weaknesses = (props) => {
       <div className="btns-container">
         {props.weaknesses.map((value, index) => {
           return (
-            <TypeButton key={index} type={value} className={props.className} />
+            <TypeButton
+              key={index}
+              type={value}
+              className={props.className}
+              isClickable={props.isClickable}
+            />
           );
         })}
       </div>

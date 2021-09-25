@@ -31,7 +31,11 @@ const Details = (props) => {
       </div>
       <div className="details-types-container">
         <Type className="btn-details" types={props.types} isClickable={true} />
-        <Weaknesses className="btn-details" weaknesses={props.weaknesses} />
+        <Weaknesses
+          className="btn-details"
+          weaknesses={props.weaknesses}
+          isClickable={true}
+        />
       </div>
 
       <button

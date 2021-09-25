@@ -1,0 +1,22 @@
+.hamburger-container {
+  height: 100%;
+  width: 3.6em;
+  background-color: var(--clr-black);
+  border-right: 2px solid black;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25em;
+  cursor: pointer;
+  position: relative;
+  z-index: 100;
+}
+
+.hamburger-container > div {
+  height: 0.25em;
+  width: 1.5em;
+  background-color: #fff;
+  border-radius: 8px;
+}

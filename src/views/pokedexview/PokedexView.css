@@ -12,12 +12,12 @@
   padding: 2em;
   height: 11.5em;
   display: flex;
+  justify-content: center;
   position: relative;
 }
 
 .input-container {
-  width: 56em;
-  margin: 0 auto;
+  width: 28em;
 }
 
 .input-container > h2 {
@@ -57,8 +57,8 @@
   border-radius: 8px;
   width: 27em;
   height: 5.5em;
-  position: absolute;
-  right: 12em;
+  /* position: absolute;
+  right: 12em; */
 }
 
 .search-info > p {
@@ -69,7 +69,6 @@
 .divider {
   background-color: var(--clr-grey-dark);
   height: 3em;
-  margin-bottom: 3em;
 }
 
 .error-container {

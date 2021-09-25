@@ -38,7 +38,7 @@
     border: none;
     top: 100%;
     left: -10%;
-    animation: fadein 2s;
+    animation: fadein 2s cubic-bezier(0.45, 0.05, 0.55, 0.95);
   }
 }
 
@@ -51,6 +51,5 @@
   }
   100% {
     transform: translateY(0);
-    animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
   }
 }

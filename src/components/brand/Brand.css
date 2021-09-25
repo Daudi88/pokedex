@@ -1,13 +1,13 @@
-@media (min-width: 1024px) {
-  .brand-container {
-    width: 100%;
-    background-color: #fff;
-    display: flex;
-  }
+.brand-container {
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  position: relative;
+  z-index: 10;
+}
 
-  .brand {
-    width: 10em;
-    padding: 0.5em;
-    margin: 0 auto;
-  }
+.brand {
+  width: 10em;
+  padding: 0.5em;
+  margin: 0 auto;
 }

@@ -15,33 +15,23 @@ const PokedexView = () => {
   );
   const [foundPokemons, setFoundPokemons] = useState([]);
   const [noPokemonsFound, setNoPokemonsFound] = useState(false);
-  const [isType, setIsType] = useState(false);
 
   useEffect(() => {
-    console.log(1);
-    setPokemons([]);
+    setNoPokemonsFound(false);
     setOffset(12);
-    if (search?.length > 0) {
-      setIsType(true);
-    } else {
-      setIsType(false);
+    setPokemons([]);
+    if (search?.length > 0 && allPokemons.length > 0) {
+      findPokemons();
     }
   }, []);
 
   useEffect(() => {
-    console.log(2);
-    findPokemons();
-  }, [isType]);
-
-  useEffect(() => {
-    console.log(3);
     if (pokemons.length < 1 && allPokemons.length >= 12) {
       getfirstTwelvePokemons();
     }
   }, [allPokemons]);
 
   useEffect(() => {
-    console.log(4);
     setPokemons([]);
     getfirstTwelvePokemons();
   }, [foundPokemons]);
@@ -64,38 +54,35 @@ const PokedexView = () => {
     setOffset(offset + 12);
   };
 
-  const searchForPokemons = () => {
-    window.scrollTo({ top: 200, left: 0, behavior: "smooth" });
-    setIsType(false);
+  const searchForPokemons = (event) => {
+    setFoundPokemons([]);
+    window.scrollTo({ top: 450, left: 0, behavior: "smooth" });
     findPokemons();
+    event.preventDefault();
   };
 
   const findPokemons = () => {
     if (search?.length > 0) {
-      const p = [];
-      if (!isType) {
-        allPokemons.forEach((pokemon) => {
+      const matchingPokemons = allPokemons.filter(
+        (pokemon) =>
+          pokemon.name.toLowerCase().includes(search.toLowerCase()) ||
+          String(pokemon.id).includes(search)
+      );
+
+      for (var i = 0; i < allPokemons.length; i++) {
+        for (var j = 0; j < allPokemons[i].types.length; j++) {
           if (
-            pokemon.name.toLowerCase().includes(search.toLowerCase()) ||
-            String(pokemon.id).includes(search)
+            allPokemons[i].types[j].type.name === search.toLowerCase() &&
+            !containsPokemon(matchingPokemons, allPokemons[i])
           ) {
-            p.push(pokemon);
-          }
-        });
-      } else {
-        for (let i = 0; i < allPokemons.length; i++) {
-          for (let j = 0; j < allPokemons[i].types.length; j++) {
-            if (allPokemons[i].types[j].type.name === search) {
-              p.push(allPokemons[i]);
-            }
+            matchingPokemons.push(allPokemons[i]);
           }
         }
       }
 
-      if (p.length > 0) {
+      if (matchingPokemons.length > 0) {
         setNoPokemonsFound(false);
-        setFoundPokemons(p);
-        console.log("jag sabbar");
+        setFoundPokemons(matchingPokemons);
         setSearch();
       } else {
         setNoPokemonsFound(true);
@@ -105,6 +92,16 @@ const PokedexView = () => {
       setNoPokemonsFound(false);
       setFoundPokemons([]);
     }
+  };
+
+  const containsPokemon = (list, pokemon) => {
+    for (var i = 0; i < list.length; i++) {
+      if (list[i] === pokemon) {
+        return true;
+      }
+    }
+
+    return false;
   };
 
   const displayData = () => {
@@ -142,13 +139,19 @@ const PokedexView = () => {
         <h1>Pokédex!</h1>
       </div>
       <div className="search-container">
-        <div className="input-container">
+        <form
+          className="input-container"
+          onSubmit={(event) => searchForPokemons(event)}
+        >
           <h2>Name or Number</h2>
-          <input onChange={(event) => setSearch(event.target.value)} />
-          <button onClick={searchForPokemons}>
+          <input
+            value={search}
+            onChange={(event) => setSearch(event.target.value)}
+          />
+          <button>
             <i className="fas fa-search fa-lg"></i>
           </button>
-        </div>
+        </form>
         <div className="search-info">
           <p>
             Search for a Pokémon by name or using its National Pokédex number.
@@ -159,7 +162,12 @@ const PokedexView = () => {
       <div className="body-container">{displayData()}</div>
       <div className="btn-container">
         <button
-          style={{ display: noPokemonsFound && "none" }}
+          style={{
+            display:
+              (allPokemons.length <= pokemons.length ||
+                foundPokemons.length <= pokemons.length) &&
+              "none",
+          }}
           className="btn btn-load-more"
           onClick={() => getTwelvePokemons()}
         >

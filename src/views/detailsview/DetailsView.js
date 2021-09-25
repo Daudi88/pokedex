@@ -101,6 +101,34 @@ const DetailsView = () => {
     );
   };
 
+  const getPrevPokemon = () => {
+    const prevId = decreaseId(pokemonId, 1);
+    const prevPokemon = allPokemons.filter(
+      (pokemon) => pokemon.id === prevId
+    )[0];
+
+    return (
+      <h3 className="prev-pokemon">
+        <span className="next-pokemon-id">{formatId(prevPokemon?.id)}</span>{" "}
+        {prevPokemon?.name}
+      </h3>
+    );
+  };
+
+  const getNextPokemon = () => {
+    const nextId = increaseId(pokemonId, 1);
+    const nextPokemon = allPokemons.filter(
+      (pokemon) => pokemon.id === nextId
+    )[0];
+
+    return (
+      <h3 className="next-pokemon">
+        {nextPokemon?.name}{" "}
+        <span className="next-pokemon-id">{formatId(nextPokemon?.id)}</span>
+      </h3>
+    );
+  };
+
   return (
     <div className="view-container">
       <div className="arrows-container">
@@ -109,12 +137,14 @@ const DetailsView = () => {
           onClick={() => changePokemon(decreaseId(pokemonId, 1))}
         >
           <KeyboardArrowLeftIcon className="arrow-left" fontSize="small" />
+          {getPrevPokemon()}
         </button>
         <button
           className=" btn-arrow btn-arrow-right"
           onClick={() => changePokemon(increaseId(pokemonId, 1))}
         >
           <KeyboardArrowRightIcon className="arrow-right" fontSize="small" />
+          {getNextPokemon()}
         </button>
         <div className="details-title">
           <div className="details-title-inner">

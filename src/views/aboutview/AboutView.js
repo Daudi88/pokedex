@@ -17,7 +17,7 @@ const AboutView = () => {
           <a href="https://www.pokemon.com/us/pokedex/" target="_blank">
             this website
           </a>{" "}
-          and have tried to copy a lot of their concepts.
+          and have tried to mimic a lot of their concepts.
         </p>
       </div>
     </div>

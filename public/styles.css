@@ -3,7 +3,7 @@
   --clr-grey-dark: #616161;
   --clr-black: #313131;
   --clr-black-dark: #1f1f1f;
-  --clr-light-white: #f2f2f2;
+  --clr-light-white: #dedede;
   --clr-green: #4dad5b;
   --clr-green-dark: #369143;
   --clr-blue: #30a7d7;
@@ -50,6 +50,15 @@ img {
   max-width: 100%;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
+.view-container {
+  background-color: #fff;
+  background-image: url("https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png");
+}
+
 @media (min-width: 1024px) {
   .btn {
     border: none;
@@ -75,9 +84,11 @@ img {
   .heading-container {
     border-top: 2px solid var(--clr-light-white);
     background-color: #fff;
-    padding: 2em;
+    padding: 1.25em;
     display: flex;
     justify-content: center;
+    width: 56em;
+    margin: 0 auto;
   }
 
   .heading-container > h1 {
@@ -94,7 +105,7 @@ img {
     background-color: #fff;
     width: 56em;
     margin: 0 auto;
-    padding: 1em;
+    padding: 3em 1em 1em;
     display: flex;
     border-radius: 0 0 8px 8px;
   }
