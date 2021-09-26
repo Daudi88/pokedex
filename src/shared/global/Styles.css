@@ -121,6 +121,7 @@ img {
     flex-wrap: wrap;
     gap: 1vw;
     padding-inline: 1em;
+    justify-content: center;
   }
 }
 

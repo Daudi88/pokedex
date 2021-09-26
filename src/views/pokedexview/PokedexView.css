@@ -41,10 +41,8 @@
   transform: rotate(180deg);
 }
 
-.body-container {
-  background-color: #fff;
-  padding-block: 0 1em;
-  min-height: auto;
+#pokemon-cards {
+  justify-content: start;
 }
 
 .btn-container {
