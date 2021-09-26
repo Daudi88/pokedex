@@ -94,7 +94,7 @@ const DetailsView = () => {
     }
     return (
       <Details
-        id={pokemon.id}
+        id={location.state}
         img={pokemon.img}
         description={description}
         stats={pokemon.stats}
