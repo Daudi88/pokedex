@@ -179,7 +179,7 @@ const PokedexView = () => {
                 ? "none"
                 : "",
           }}
-          className="btn-load-more"
+          className="btn btn-load-more"
           onClick={() => getTwelvePokemons()}
         >
           Load more Pokémon
