@@ -119,8 +119,7 @@ img {
     background-color: #fff;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.6em;
+    gap: 1vw;
     padding-inline: 1em;
   }
 }
@@ -149,5 +148,6 @@ img {
   .body-container {
     padding-inline: 0.5em;
     width: 56em;
+    gap: 0.9em;
   }
 }
