@@ -3,9 +3,9 @@ import { useLocation } from "react-router";
 import { PokemonContext } from "../../shared/provider/PokemonProvider";
 import Loader from "../../components/loader/Loader";
 import Card from "../../components/card/Card";
-import "./PokedexView.css";
 import SearchContainer from "../../components/searchcontainer/SearchContainer";
 import ErrorContainer from "../../components/errorcontainer/ErrorContainer";
+import "./PokedexView.css";
 
 const PokedexView = () => {
   const location = useLocation();
@@ -15,6 +15,7 @@ const PokedexView = () => {
   const [search, setSearch] = useState(location.state ? location.state : "");
   const [foundPokemons, setFoundPokemons] = useState([]);
   const [noPokemonsFound, setNoPokemonsFound] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     setNoPokemonsFound(false);
@@ -55,8 +56,14 @@ const PokedexView = () => {
   };
 
   const searchForPokemons = (event) => {
+    allPokemons.sort(function (a, b) {
+      return a.id - b.id;
+    });
     setFoundPokemons([]);
-    window.scrollTo({ top: 450, left: 0, behavior: "smooth" });
+    const top = document
+      .getElementById("pokemon-cards")
+      .getBoundingClientRect().top;
+    window.scrollTo({ top: top, left: 0 });
     findPokemons();
     event.preventDefault();
   };
@@ -69,8 +76,8 @@ const PokedexView = () => {
           String(pokemon.id).includes(search)
       );
 
-      for (var i = 0; i < allPokemons.length; i++) {
-        for (var j = 0; j < allPokemons[i].types.length; j++) {
+      for (let i = 0; i < allPokemons.length; i++) {
+        for (let j = 0; j < allPokemons[i].types.length; j++) {
           if (
             allPokemons[i].types[j].type.name === search.toLowerCase() &&
             !containsPokemon(matchingPokemons, allPokemons[i])
@@ -83,7 +90,7 @@ const PokedexView = () => {
       if (matchingPokemons.length > 0) {
         setNoPokemonsFound(false);
         setFoundPokemons(matchingPokemons);
-        setSearch();
+        setSearch("");
       } else {
         setNoPokemonsFound(true);
         setFoundPokemons([]);
@@ -95,13 +102,28 @@ const PokedexView = () => {
   };
 
   const containsPokemon = (list, pokemon) => {
-    for (var i = 0; i < list.length; i++) {
+    for (let i = 0; i < list.length; i++) {
       if (list[i] === pokemon) {
         return true;
       }
     }
 
     return false;
+  };
+
+  const shufflePokemons = () => {
+    setSearch("");
+    setFoundPokemons([]);
+    let i = allPokemons.length;
+
+    while (--i) {
+      let j = Math.floor(Math.random() * (i + 1));
+      const tempi = allPokemons[i];
+      const tempj = allPokemons[j];
+      allPokemons[i] = tempj;
+      allPokemons[j] = tempi;
+    }
+    getfirstTwelvePokemons();
   };
 
   const displayData = () => {
@@ -124,24 +146,40 @@ const PokedexView = () => {
   return (
     <div className="view-container">
       <div className="heading-container">
-        <h1>Pokédex</h1>
+        <h1 className="heading-title">Pokédex</h1>
       </div>
       <SearchContainer
         search={search}
         setSearch={setSearch}
         searchForPokemons={searchForPokemons}
       />
-      <div className="divider"></div>
-      <div className="body-container">{displayData()}</div>
-      <div className="btn-container">
+      <div className="divider">
+        <div className="divider-notch"></div>
+      </div>
+      <div className="btn-container top-btns-container">
+        <button className="btn btn-surprise" onClick={shufflePokemons}>
+          <i class="fas fa-sync-alt"></i> Surprise Me!
+        </button>
+        <button className="btn btn-sort" onClick={() => setOpen(!open)}>
+          <span>Sort results by...</span>
+          <i class={`fas fa-chevron-${open ? "up" : "down"} fa-lg`}></i>
+        </button>
+      </div>
+      <div id="pokemon-cards" className="body-container">
+        {displayData()}
+      </div>
+      <div className="btn-container btn-load-more-container">
         <button
           style={{
             display:
-              (allPokemons.length <= pokemons.length ||
-                foundPokemons.length <= pokemons.length) &&
-              "none",
+              (foundPokemons.length > 0 &&
+                foundPokemons.length <= pokemons.length) ||
+              noPokemonsFound ||
+              allPokemons.length <= pokemons.length
+                ? "none"
+                : "",
           }}
-          className="btn btn-load-more"
+          className="btn-load-more"
           onClick={() => getTwelvePokemons()}
         >
           Load more Pokémon

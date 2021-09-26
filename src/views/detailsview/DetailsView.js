@@ -26,7 +26,7 @@ const DetailsView = () => {
   );
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
@@ -58,9 +58,9 @@ const DetailsView = () => {
   };
 
   const getDescriptionEntry = (entries) => {
-    const language = "en";
-    const entry = entries.filter((entry) => entry.language.name === language);
-    return entry[0].flavor_text.replace("\f", " ");
+    const lang = "en";
+    const entry = entries.find((entry) => entry.language.name === lang);
+    return entry.flavor_text.replace("\f", " ");
   };
 
   const fetchFirstDamageRelation = () => {
@@ -86,7 +86,11 @@ const DetailsView = () => {
 
   const showDetails = () => {
     if (!pokemon) {
-      return <Loader />;
+      return (
+        <div className="details-loader">
+          <Loader />
+        </div>
+      );
     }
     return (
       <Details
@@ -107,12 +111,22 @@ const DetailsView = () => {
       (pokemon) => pokemon.id === prevId
     )[0];
 
-    return (
-      <h3 className="prev-pokemon">
-        <span className="next-pokemon-id">{formatId(prevPokemon?.id)}</span>{" "}
-        {prevPokemon?.name}
-      </h3>
-    );
+    if (prevPokemon) {
+      return (
+        <div className="prev-pokemon">
+          <span className="next-pokemon-id">{formatId(prevPokemon?.id)}</span>{" "}
+          <h3 className="prev-pokemon-title">{prevPokemon?.name}</h3>
+        </div>
+      );
+    } else {
+      return (
+        <div className="prev-pokemon">
+          <span className="prev-pokemon-loader">
+            <Loader />
+          </span>
+        </div>
+      );
+    }
   };
 
   const getNextPokemon = () => {
@@ -122,10 +136,10 @@ const DetailsView = () => {
     )[0];
 
     return (
-      <h3 className="next-pokemon">
-        {nextPokemon?.name}{" "}
+      <div className="next-pokemon">
+        <h3 className="next-pokemon-title">{nextPokemon?.name}</h3>{" "}
         <span className="next-pokemon-id">{formatId(nextPokemon?.id)}</span>
-      </h3>
+      </div>
     );
   };
 
@@ -143,8 +157,8 @@ const DetailsView = () => {
           className=" btn-arrow btn-arrow-right"
           onClick={() => changePokemon(increaseId(pokemonId, 1))}
         >
-          <KeyboardArrowRightIcon className="arrow-right" fontSize="small" />
           {getNextPokemon()}
+          <KeyboardArrowRightIcon className="arrow-right" fontSize="small" />
         </button>
         <div className="details-title">
           <div className="details-title-inner">

@@ -1,45 +1,42 @@
-@media screen and (min-width: 1024px) {
-  .gauge {
-    list-style: none;
-    background-color: white;
-    font-size: 1.35rem;
-    position: relative;
-    overflow: hidden;
-  }
+.gauge {
+  background-color: white;
+  font-size: 1.35rem;
+  position: relative;
+  overflow: hidden;
+}
 
-  li {
-    height: 0.55em;
-    width: 100%;
-    border-bottom: 0.2em solid var(--clr-grey);
-    color: #fff;
-    list-style: none;
-    background-color: transparent;
-    position: relative;
-    z-index: 2;
-  }
+li {
+  height: 0.55em;
+  width: 100%;
+  border-bottom: 0.2em solid var(--clr-grey);
+  color: #fff;
+  list-style: none;
+  background-color: transparent;
+  position: relative;
+  z-index: 2;
+}
 
-  .gauge-name {
-    color: #212121;
-    font-size: 0.75rem;
-    font-weight: bold;
-    margin: 0;
-    padding: 0;
-    float: left;
-    text-align: center;
-    width: 100%;
-  }
+.gauge-name {
+  color: #212121;
+  font-size: 0.6rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  float: left;
+  text-align: center;
+  width: 100%;
+}
 
-  .meter {
-    background-color: var(--clr-blue);
-    height: 120%;
-    width: 120%;
-    position: absolute;
-    z-index: 1;
-    border: none;
-    top: 100%;
-    left: -10%;
-    animation: fadein 2s cubic-bezier(0.45, 0.05, 0.55, 0.95);
-  }
+.meter {
+  background-color: var(--clr-blue);
+  height: 120%;
+  width: 110%;
+  position: absolute;
+  z-index: 1;
+  border: none;
+  top: 100%;
+  left: -5%;
+  animation: fadein 2s cubic-bezier(0.45, 0.05, 0.55, 0.95);
 }
 
 @keyframes fadein {

@@ -4,9 +4,9 @@ import "./Weaknesses.css";
 
 const Weaknesses = (props) => {
   return (
-    <div className="weaknesses-container">
+    <div className="type-container weaknesses-container">
       <h2 className="weaknesses-title">Weaknesses</h2>
-      <div className="btns-container">
+      <div className="type-btns-container">
         {props.weaknesses.map((value, index) => {
           return (
             <TypeButton

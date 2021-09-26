@@ -1,48 +1,59 @@
-@media (min-width: 1024px) {
-  .footer-divider {
-    height: 2.5em;
-    width: 100%;
-    background-color: transparent;
-  }
+.footer-divider {
+  height: 2.5em;
+  width: 100%;
+  background-color: transparent;
+}
 
-  .footer-notch {
-    width: 55em;
-    height: 0.38em;
-    background-color: #fff;
-    margin: 0 auto;
-    position: relative;
-  }
+.footer-notch {
+  width: 85%;
+  max-width: 54.5em;
+  height: 0.38em;
+  background-color: #fff;
+  margin: 0 auto;
+  position: relative;
+}
 
-  .footer-notch::before {
-    background: transparent
-      url("https://assets.pokemon.com/static2/_ui/img/chrome/notches/notch-top-left.png")
-      no-repeat;
-    left: -0.7em;
-  }
+.footer-notch::before,
+.footer-notch::after {
+  top: 0;
+  content: " ";
+  position: absolute;
+  height: 1em;
+  width: 1em;
+}
 
-  .footer-notch::after {
-    background: transparent
-      url("https://assets.pokemon.com/static2/_ui/img/chrome/notches/notch-top-right.png")
-      no-repeat;
-    right: -1em;
-  }
+.footer-notch::before {
+  background: transparent
+    url("https://assets.pokemon.com/static2/_ui/img/chrome/notches/notch-top-left.png")
+    no-repeat;
+  left: -0.7em;
+}
 
-  .footer-notch::before,
-  .footer-notch::after {
-    top: 0;
-    content: " ";
-    position: absolute;
-    height: 1em;
-    width: 1em;
-  }
+.footer-notch::after {
+  background: transparent
+    url("https://assets.pokemon.com/static2/_ui/img/chrome/notches/notch-top-right.png")
+    no-repeat;
+  right: -1em;
+}
 
-  .footer-content {
-    background-color: var(--clr-black-dark);
-    height: 8em;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    font-size: 1rem;
-    color: var(--clr-grey);
-  }
+.footer-content {
+  background-color: var(--clr-black-dark);
+  height: 8em;
+  width: 100%;
+  text-align: left;
+  padding: 1em 2.5em;
+  position: relative;
+  border-bottom: 8px solid #191919;
+}
+
+.footer-title {
+  color: #fff;
+  text-shadow: -2px 0 #000, 0 2px #000, 2px 0 #000, 0 -2px #000;
+}
+
+small {
+  position: absolute;
+  font-size: 0.75rem;
+  color: #525252;
+  bottom: 8px;
 }

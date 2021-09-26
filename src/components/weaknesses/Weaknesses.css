@@ -1,12 +1,12 @@
 .weaknesses-container {
   text-align: left;
-  margin: 5em 0.25em 3em;
+  margin-bottom: 3em;
 }
 
-.weaknesses-title {
+/* .weaknesses-title {
   font-weight: normal;
   font-size: 3rem;
-}
+} */
 
 /* @media (min-width: 960px) {
   .weaknesses-container {

@@ -3,7 +3,7 @@
   --clr-grey-dark: #616161;
   --clr-black: #313131;
   --clr-black-dark: #1f1f1f;
-  --clr-light-white: #dedede;
+  --clr-light-white: #f2f2f2;
   --clr-green: #4dad5b;
   --clr-green-dark: #369143;
   --clr-blue: #30a7d7;
@@ -71,6 +71,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-image: url("https://assets.pokemon.com/static2/_ui/img/chrome/body_bg.png");
   font-family: "Flexo-Regular";
@@ -84,29 +88,47 @@ img {
   overflow: hidden;
 }
 
-.view-container {
+/* .view-container {
   background-color: #fff;
   background-image: url("https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png");
 }
 
 .heading-container {
   background-color: #fff;
-  padding-block: 1.3em;
 }
 
 .heading-container > h1 {
   color: var(--clr-grey);
-  font-size: 1.9rem;
+  font-size: 2rem;
   font-weight: normal;
-  margin-top: 0.5em;
-  margin-left: 0.5em;
+  padding: 1.25em 0.5em 0.5em;
 }
 
 .body-container {
   background-color: #fff;
+  padding-block: 0 1em;
+  min-height: 80vh;
+} */
+
+/* .btn {
+  border: none;
+  cursor: pointer;
+  font-family: "Flexo-Regular";
+  color: #fff;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 460px) {
+  .view-container {
+    width: 100%;
+  } */
+
+/* .body-container {
+    width: 85.5%;
+    margin: 0 auto;
+  } 
+}*/
+
+/* @media (min-width: 1024px) {
   .view-container {
     text-align: center;
     position: relative;
@@ -127,27 +149,99 @@ img {
     text-align: left;
     font-weight: normal;
     color: var(--clr-grey);
-  }
+  } */
 
-  .body-container {
+/* .body-container {
     display: flex;
     flex-wrap: wrap;
-    /* background-color: #fff; */
+    background-color: #fff;
     width: 56em;
     margin: 0 auto;
     padding: 3em 1em 1em;
     display: flex;
     border-radius: 0 0 8px 8px;
-  }
+  } */
 
-  .btn {
-    border: none;
-    cursor: pointer;
-    font-family: "Flexo-Regular";
-    color: #fff;
-  }
-
-  .btn:hover {
+/* .btn:hover {
     background-color: var(--clr-blue-dark);
+  }
+} */
+
+.view-container {
+  background-color: #fff;
+  background-image: url("https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png");
+}
+
+.heading-container {
+  background-color: #fff;
+}
+
+.heading-title {
+  color: var(--clr-grey);
+  font-size: 2rem;
+  font-weight: normal;
+  padding: 1.25em 0.5em 0.5em;
+}
+
+.body-container {
+  background-color: #fff;
+  padding-block: 0 1em;
+  /* min-height: 80vh; */
+}
+
+.btn {
+  border: none;
+  cursor: pointer;
+  font-family: "Flexo-Regular";
+  color: #fff;
+}
+
+@media (min-width: 460px) {
+  .view-container {
+    width: 100%;
+  }
+
+  .heading-container {
+    width: 85.5%;
+    margin: 0 auto;
+  }
+
+  .body-container {
+    width: 85.5%;
+    margin: 0 auto;
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6em;
+    padding-inline: 1em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .view-container {
+    text-align: center;
+    /* position: relative; */
+    max-width: 80em;
+    margin: 0 auto;
+  }
+
+  .heading-container {
+    display: flex;
+    justify-content: center;
+    width: 56em;
+    margin: 0 auto;
+  }
+
+  .heading-title {
+    width: 27em;
+    text-align: left;
+    font-weight: normal;
+    color: var(--clr-grey);
+  }
+
+  .body-container {
+    padding-inline: 0.5em;
+    width: 56em;
   }
 }

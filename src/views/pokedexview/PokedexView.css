@@ -1,13 +1,101 @@
-.btn-container {
-  width: 80%;
-  background-color: #fff;
-  margin: 0 auto;
-  padding: 1em;
-}
-
 .divider {
   background-color: var(--clr-grey-dark);
   height: 3em;
+  position: relative;
+}
+
+.divider-notch {
+  width: 70vw;
+  max-width: 30em;
+  height: 18px;
+  background-color: var(--clr-grey-dark);
+  margin: 0 auto;
+  position: absolute;
+  top: 2.9em;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.divider-notch::before,
+.divider-notch::after {
+  top: 0;
+  content: " ";
+  position: absolute;
+  width: 38px;
+  height: 18px;
+}
+
+.divider-notch::before {
+  background: transparent
+    url("https://assets.pokemon.com/static2/_ui/img/chrome/notches/large-notch-darkgray.png")
+    no-repeat;
+  left: -37px;
+  transform: scaleY(-1);
+}
+
+.divider-notch::after {
+  background: transparent
+    url("https://assets.pokemon.com/static2/_ui/img/chrome/notches/large-notch-darkgray.png")
+    no-repeat;
+  right: -37px;
+  transform: rotate(180deg);
+}
+
+.body-container {
+  background-color: #fff;
+  padding-block: 0 1em;
+  min-height: auto;
+}
+
+.btn-container {
+  width: 100%;
+  background-color: #fff;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-btns-container {
+  padding-block: 1em 3em;
+}
+
+.btn-sort {
+  font-family: "Flexo-Regular";
+  font-size: 1rem;
+  background-color: var(--clr-black);
+  width: 80vw;
+  height: 2.5em;
+  border-radius: 5px;
+  margin-top: 1em;
+  text-align: left;
+  padding-left: 1.25em;
+  position: relative;
+  color: #fff;
+}
+
+.btn-sort > i {
+  position: absolute;
+  right: 0.5em;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.btn-surprise {
+  font-family: "Flexo-Demi";
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 2em;
+  width: 80vw;
+  height: 3em;
+  background-color: var(--clr-blue);
+  border-radius: 5px;
+  color: #fff;
+}
+
+.btn-surprise:hover {
+  background-color: var(--clr-blue-dark);
 }
 
 .btn-load-more {
@@ -18,4 +106,52 @@
   padding: 0.75em 1em;
   margin-bottom: 3em;
   border-radius: 5px;
+  color: #fff;
+}
+
+.btn-page-up {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  border: 2px solid var(--clr-black-dark);
+  padding: 1em 1.25em;
+  border-radius: 10px 0 0 0;
+  opacity: 0.6;
+  transition: transform 0.3s linear;
+  background-color: var(--clr-grey-dark);
+  color: #fff;
+  cursor: pointer;
+}
+
+@media (min-width: 460px) {
+  .btn-container {
+    width: 85.5%;
+  }
+}
+
+@media (min-width: 960px) {
+  .btn-container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-inline: 1.5em;
+  }
+
+  .btn-surprise {
+    width: 20em;
+    position: relative;
+  }
+
+  .btn-sort {
+    width: 22em;
+  }
+
+  .btn-load-more-container {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .btn-container {
+    width: 56em;
+  }
 }

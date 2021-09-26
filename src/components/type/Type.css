@@ -1,11 +1,30 @@
 .type-container {
-  text-align: left;
-  margin-block: 5em;
+  margin-left: 0.5em;
 }
 
-.type-title {
+.type-title,
+.weaknesses-title {
+  /* text-align: left; */
+  margin-block: 1em 0.5em;
+  font-size: 1.2rem;
   font-weight: normal;
-  font-size: 3rem;
+}
+
+.type-btns-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35em;
+}
+
+@media (min-width: 1024px) {
+  .type-container {
+    text-align: left;
+    /* margin-block: 5em; */
+  }
+
+  /* .type-title {
+    font-size: 3rem;
+  } */
 }
 
 /* @media (min-width: 960px) {

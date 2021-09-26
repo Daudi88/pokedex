@@ -4,10 +4,11 @@
   background-size: 32px;
   width: 32px;
   height: 32px;
-  position: absolute;
-  left: 49%;
-  top: 30em;
   animation: loader 1s ease forwards infinite;
+  /* position: absolute;
+  left: 49%;
+  top: 30em; */
+  /* z-index: 150; */
 }
 
 @keyframes loader {

@@ -1,4 +1,5 @@
 import React from "react";
+import calculateWeaknesses from "../../shared/functions/calculateWeaknesses";
 import capitalize from "../../shared/functions/capitalize";
 import "./Gauge.css";
 

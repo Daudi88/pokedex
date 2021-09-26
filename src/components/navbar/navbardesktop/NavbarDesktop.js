@@ -52,6 +52,7 @@ const Navbar = () => {
         to={RoutingPath.pokedexView}
         className="nav-link nav-link-pokedex"
         style={pokedexColors}
+        onClick={window.scrollTo(0, 0)}
       >
         <p className="nav-link-text">Pokédex</p>
       </NavLink>
@@ -59,6 +60,7 @@ const Navbar = () => {
         to={RoutingPath.detailsView}
         className="nav-link nav-link-details"
         style={detailsColors}
+        onClick={window.scrollTo(0, 0)}
       >
         <span className="nav-link-text">Details</span>
       </NavLink>

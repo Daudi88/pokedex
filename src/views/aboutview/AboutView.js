@@ -5,9 +5,9 @@ const AboutView = () => {
   return (
     <div className="view-container">
       <div className="heading-container">
-        <h1>About</h1>
+        <h1 className="heading-title">About</h1>
       </div>
-      <div className="body-container">
+      <div className="about-body-container">
         <p className="about-text">
           I built this page to learn{" "}
           <a href="https://reactjs.org/" target="_blank">

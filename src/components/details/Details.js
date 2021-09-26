@@ -12,24 +12,28 @@ const Details = (props) => {
 
   return (
     <div className="details-container">
-      <img className="details-img" src={props.img} alt="" />
-      <div className="stats-container">
-        <h3 className="stats-title">Stats</h3>
-        <ul className="stats-table">
-          {props.stats.map((stat, index) => (
-            <Gauge key={index} value={stat.base_stat} name={stat.stat.name} />
-          ))}
-        </ul>
-      </div>
-      <p className="details-description">{props.description}</p>
-      <div className="info-container">
-        <div>
-          <Info name="Height" value={props.info.height} unit="m" />
-          <Info name="Weight" value={props.info.weight} unit="kg" />
+      <div className="details-col-left">
+        <img className="details-img" src={props.img} alt="" />
+        <div className="stats-container">
+          <h3 className="stats-title">Stats</h3>
+          <ul className="stats-table">
+            {props.stats.map((stat, index) => (
+              <Gauge key={index} value={stat.base_stat} name={stat.stat.name} />
+            ))}
+          </ul>
         </div>
-        <Info name="Abilities" values={props.info.abilities} />
       </div>
-      <div className="details-types-container">
+      <div className="details-col-right">
+        <p className="details-description">{props.description}</p>
+        <div className="info-container">
+          <div>
+            <Info name="Height" value={props.info.height} unit="m" />
+            <Info name="Weight" value={props.info.weight} unit="kg" />
+          </div>
+          <div className="info-col-right">
+            <Info name="Abilities" values={props.info.abilities} />
+          </div>
+        </div>
         <Type className="btn-details" types={props.types} isClickable={true} />
         <Weaknesses
           className="btn-details"
@@ -37,13 +41,14 @@ const Details = (props) => {
           isClickable={true}
         />
       </div>
-
-      <button
-        className="btn btn-go-back"
-        onClick={() => history.push(RoutingPath.pokedexView)}
-      >
-        Explore More Pokémon
-      </button>
+      <div className="btn-go-back-container">
+        <button
+          className="btn btn-go-back"
+          onClick={() => history.push(RoutingPath.pokedexView)}
+        >
+          Explore More Pokémon
+        </button>
+      </div>
     </div>
   );
 };
