@@ -7,7 +7,7 @@ const AboutView = () => {
       <div className="heading-container">
         <h1 className="heading-title">About</h1>
       </div>
-      <div className="about-body-container">
+      <div className="body-container">
         <p className="about-text">
           I built this page to learn{" "}
           <a href="https://reactjs.org/" target="_blank">

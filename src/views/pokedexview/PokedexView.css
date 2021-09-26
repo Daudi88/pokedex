@@ -109,20 +109,6 @@
   color: #fff;
 }
 
-.btn-page-up {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  border: 2px solid var(--clr-black-dark);
-  padding: 1em 1.25em;
-  border-radius: 10px 0 0 0;
-  opacity: 0.6;
-  transition: transform 0.3s linear;
-  background-color: var(--clr-grey-dark);
-  color: #fff;
-  cursor: pointer;
-}
-
 @media (min-width: 460px) {
   .btn-container {
     width: 85.5%;
@@ -138,7 +124,6 @@
 
   .btn-surprise {
     width: 20em;
-    position: relative;
   }
 
   .btn-sort {

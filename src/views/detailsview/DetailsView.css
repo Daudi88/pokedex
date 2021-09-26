@@ -96,6 +96,11 @@
   left: 0.25em;
 }
 
+.next-pokemon-loader {
+  float: left;
+  margin-left: 0.5em;
+}
+
 .prev-pokemon-title,
 .next-pokemon-title {
   display: none;
@@ -151,6 +156,14 @@
   color: var(--clr-grey-dark);
 }
 
+.details-loader {
+  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 55%;
+}
+
 @media (min-width: 960px) {
   .arrow-left {
     right: 20.6em;
@@ -181,6 +194,11 @@
   .prev-pokemon-loader {
     float: left;
     margin-left: 0.5em;
+  }
+
+  .next-pokemon-loader {
+    float: right;
+    margin-right: 0.5em;
   }
 
   .next-pokemon {

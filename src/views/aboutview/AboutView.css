@@ -1,15 +1,8 @@
-.about-body-container {
-  background-color: #fff;
-  height: 68.5vh;
-  max-width: 56em;
-  margin: 0 auto;
-}
-
 .about-text {
   line-height: 1.5;
   font-size: 1.25rem;
-  width: 92%;
-  margin: 0 auto;
-  margin-bottom: 5em;
+  padding-left: 2%;
   text-align: left;
+  height: 15vh;
+  margin-bottom: 32vh;
 }

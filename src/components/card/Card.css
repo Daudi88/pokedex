@@ -3,6 +3,7 @@
   width: 85.5%;
   cursor: pointer;
   background-color: #fff;
+  text-align: left;
 }
 
 .card-container:hover {
@@ -58,9 +59,7 @@
 
 @media (min-width: 1024px) {
   .card-container {
-    /* text-align: left; */
     width: 23.7%;
-    /* height: 20em; */
   }
 
   .card-name {

@@ -4,7 +4,6 @@
 
 .type-title,
 .weaknesses-title {
-  /* text-align: left; */
   margin-block: 1em 0.5em;
   font-size: 1.2rem;
   font-weight: normal;
@@ -19,22 +18,5 @@
 @media (min-width: 1024px) {
   .type-container {
     text-align: left;
-    /* margin-block: 5em; */
   }
-
-  /* .type-title {
-    font-size: 3rem;
-  } */
 }
-
-/* @media (min-width: 960px) {
-  .type-container {
-    margin-block: 1em;
-    padding: 0;
-  }
-
-  .type-title {
-    font-size: 1.25rem;
-    margin-bottom: 0.75em;
-  }
-} */

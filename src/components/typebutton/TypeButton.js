@@ -1,9 +1,9 @@
 import React from "react";
-import getColors from "../../shared/functions/getColors";
-import capitalize from "../../shared/functions/capitalize";
-import "./TypeButton.css";
 import { useHistory } from "react-router";
 import RoutingPath from "../../routes/RoutingPath";
+import capitalize from "../../shared/functions/capitalize";
+import getColors from "../../shared/functions/getColors";
+import "./TypeButton.css";
 
 export const TypeButton = (props) => {
   const history = useHistory();

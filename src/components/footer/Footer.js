@@ -27,9 +27,11 @@ const Footer = () => {
       <div className="footer-divider">
         <div className="footer-notch"></div>
       </div>
-      <div className="footer-content">
-        <h3 className="footer-title">The Pokémon Company</h3>
-        <small>©{year} Pokémon. TM, ®Nintendo.</small>
+      <div className="footer-container">
+        <div className="footer-content">
+          <h3 className="footer-title">The Pokémon Company</h3>
+          <small>©{year} Pokémon. TM, ®Nintendo.</small>
+        </div>
       </div>
       <button
         onClick={() => {

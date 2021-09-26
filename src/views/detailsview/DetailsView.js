@@ -22,7 +22,7 @@ const DetailsView = () => {
   const [description, setDescription] = useState();
   const [damageRelations, setDamageRelations] = useState([]);
   const [pokemon, setPokemon] = useState(
-    allPokemons.filter((pokemon) => pokemon.id === pokemonId)[0]
+    allPokemons.find((pokemon) => pokemon.id === pokemonId)
   );
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const DetailsView = () => {
 
   useEffect(() => {
     if (!pokemon) {
-      setPokemon(allPokemons.filter((pokemon) => pokemon.id === pokemonId)[0]);
+      setPokemon(allPokemons.find((pokemon) => pokemon.id === pokemonId));
       setCounter(0);
       setDamageRelations([]);
     }
@@ -107,9 +107,7 @@ const DetailsView = () => {
 
   const getPrevPokemon = () => {
     const prevId = decreaseId(pokemonId, 1);
-    const prevPokemon = allPokemons.filter(
-      (pokemon) => pokemon.id === prevId
-    )[0];
+    const prevPokemon = allPokemons.find((pokemon) => pokemon.id === prevId);
 
     if (prevPokemon) {
       return (
@@ -131,16 +129,24 @@ const DetailsView = () => {
 
   const getNextPokemon = () => {
     const nextId = increaseId(pokemonId, 1);
-    const nextPokemon = allPokemons.filter(
-      (pokemon) => pokemon.id === nextId
-    )[0];
+    const nextPokemon = allPokemons.find((pokemon) => pokemon.id === nextId);
 
-    return (
-      <div className="next-pokemon">
-        <h3 className="next-pokemon-title">{nextPokemon?.name}</h3>{" "}
-        <span className="next-pokemon-id">{formatId(nextPokemon?.id)}</span>
-      </div>
-    );
+    if (nextPokemon) {
+      return (
+        <div className="next-pokemon">
+          <h3 className="next-pokemon-title">{nextPokemon?.name}</h3>{" "}
+          <span className="next-pokemon-id">{formatId(nextPokemon?.id)}</span>
+        </div>
+      );
+    } else {
+      return (
+        <div className="next-pokemon">
+          <span className="next-pokemon-loader">
+            <Loader />
+          </span>
+        </div>
+      );
+    }
   };
 
   return (
