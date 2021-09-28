@@ -4,8 +4,8 @@ const getPokemon = (identifier) => {
   return http.get(`pokemon/${identifier}`);
 };
 
-const getAllPokemons = () => {
-  return http.get("pokemon?limit=898");
+const getAllPokemons = (totalAmountOfPokemonsToGet) => {
+  return http.get(`pokemon?limit=${totalAmountOfPokemonsToGet}`);
 };
 
 const getPokemonDescription = (id) => {

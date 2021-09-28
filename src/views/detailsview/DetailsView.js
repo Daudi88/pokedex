@@ -100,6 +100,7 @@ const DetailsView = () => {
         stats={pokemon.stats}
         info={pokemon.info}
         types={pokemon.types}
+        weaknesses={pokemon.weaknesses}
         weaknesses={calculateWeaknesses(damageRelations)}
       />
     );
@@ -150,8 +151,8 @@ const DetailsView = () => {
   };
 
   return (
-    <div className="view-container">
-      <div className="arrows-container">
+    <main>
+      <heading className="arrows-container">
         <button
           className="btn-arrow btn-arrow-left"
           onClick={() => changePokemon(decreaseId(pokemonId, 1))}
@@ -172,9 +173,9 @@ const DetailsView = () => {
             <span className="details-id">{formatId(pokemon?.id)}</span>
           </div>
         </div>
-      </div>
-      <div className="body-container">{showDetails()}</div>
-    </div>
+      </heading>
+      <section>{showDetails()}</section>
+    </main>
   );
 };
 

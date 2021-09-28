@@ -1,0 +1,155 @@
+.advanced-search {
+  background-color: var(--clr-grey-dark);
+  position: relative;
+  padding-bottom: 3.6em;
+}
+
+.advanced-search-content {
+  overflow-y: hidden;
+  height: 60em;
+  transition: max-height 0.2s ease-in;
+}
+
+.advanced-search-section {
+  padding: 2.5em 8vw 0;
+}
+
+.advanced-search-title {
+  color: #fff;
+  font-weight: normal;
+  font-size: 1.7rem;
+}
+
+.types-info {
+  color: #fff;
+  font-size: 0.8rem;
+  margin-right: 0.75em;
+}
+
+.types {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1em;
+}
+
+.number-range > h3 {
+  margin-bottom: 0.25em;
+}
+
+.number-range > span {
+  color: #fff;
+  padding: 0.75em;
+}
+
+.number-range > input {
+  width: 4.7em;
+  height: 2.5em;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  padding-left: 0.5em;
+}
+
+.ability-drop-down {
+  position: relative;
+}
+
+.advanced-search-notch {
+  width: 70vw;
+  max-width: 30em;
+  height: 18px;
+  background-color: var(--clr-grey-dark);
+  position: absolute;
+  bottom: -17px;
+  z-index: 1;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+}
+
+.btn-advanced-search {
+  font-family: "Flexo-Medium";
+  display: flex;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+  margin-top: -0.5em;
+  margin-inline: auto;
+}
+
+.circle-arrow {
+  display: none;
+}
+
+.bottom-btns {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.btn-reset,
+.btn-search {
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #fff;
+  font-family: "Flexo-Demi";
+  padding: 0.75em 1em;
+}
+
+.btn-reset {
+  background-color: var(--clr-grey);
+}
+
+.btn-reset:hover {
+  background-color: var(--clr-grey-light);
+}
+
+.btn-search {
+  background-color: var(--clr-orange);
+}
+
+.btn-search:hover {
+  background-color: var(--clr-orange-dark);
+}
+
+.advanced-search-notch::before,
+.advanced-search-notch::after {
+  top: 0;
+  content: " ";
+  position: absolute;
+  width: 38px;
+  height: 18px;
+}
+
+.advanced-search-notch::before {
+  background: transparent
+    url("https://assets.pokemon.com/static2/_ui/img/chrome/notches/large-notch-darkgray.png")
+    no-repeat;
+  left: -37px;
+  transform: scaleY(-1);
+}
+
+.advanced-search-notch::after {
+  background: transparent
+    url("https://assets.pokemon.com/static2/_ui/img/chrome/notches/large-notch-darkgray.png")
+    no-repeat;
+  right: -37px;
+  transform: rotate(180deg);
+}
+
+@media (min-width: 960px) {
+  .circle-arrow {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    color: var(--clr-black-dark);
+    background-color: #fff;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    margin-left: 0.5em;
+  }
+}

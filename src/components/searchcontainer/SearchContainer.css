@@ -3,10 +3,14 @@
   background-color: var(--clr-black);
   text-align: left;
   padding-bottom: 0.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 5;
 }
 
 .input-container {
-  width: 100%;
   padding: 1.5em;
 }
 
@@ -14,14 +18,15 @@
   color: #fff;
   font-size: 1.7em;
   font-weight: normal;
+  width: 8em;
 }
 
 .input-container > input {
-  margin-right: 5vw;
   padding: 0.5em;
   border: 3px solid var(--clr-grey-dark);
   border-radius: 5px;
-  width: 65vw;
+  width: 60vw;
+  margin-right: 5vw;
   height: 3em;
   font-size: 1rem;
   color: var(--clr-grey-dark);
@@ -48,7 +53,6 @@
   background-color: var(--clr-green);
   padding: 1em;
   border-radius: 8px;
-  margin-left: 1.5em;
 }
 
 .search-info > p {
@@ -56,27 +60,40 @@
   color: #fff;
 }
 
+@media (min-width: 960px) {
+  .search-container {
+    flex-direction: unset;
+    justify-content: center;
+  }
+
+  .input-container > input {
+    width: 30vw;
+    margin-right: 1.5em;
+  }
+
+  .input-container > button {
+    width: 3.25em;
+  }
+
+  .search-info {
+    width: 40vw;
+  }
+}
+
 @media (min-width: 1024px) {
   .search-container {
     padding: 2em;
     height: 11.5em;
-    display: flex;
-    justify-content: center;
-    position: relative;
   }
 
   .input-container {
     width: 28em;
+    padding-top: 0;
   }
 
   .input-container > input {
     width: 20em;
     margin-right: 1.5em;
-  }
-
-  .input-container > button {
-    height: 3em;
-    width: 3.25em;
   }
 
   .search-info {

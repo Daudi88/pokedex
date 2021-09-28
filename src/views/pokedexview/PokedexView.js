@@ -4,23 +4,41 @@ import { PokemonContext } from "../../shared/provider/PokemonProvider";
 import Loader from "../../components/loader/Loader";
 import Card from "../../components/card/Card";
 import SearchContainer from "../../components/searchcontainer/SearchContainer";
+import AdvancedSearch from "../../components/advancedsearch/AdvancedSearch";
 import ErrorContainer from "../../components/errorcontainer/ErrorContainer";
+import DropDownMenu from "../../components/dropdownmenu/DropDownMenu";
+import byLowestNumberFirst from "../../shared/functions/sort/byLowestNumberFirst";
+import byHighestNumberFirst from "../../shared/functions/sort/byHighestNumberFirst";
+import byName from "../../shared/functions/sort/byName";
+import byNameReversed from "../../shared/functions/sort/byNameReversed";
+import containsPokemon from "../../shared/functions/containsPokemon";
+import scrollToPokemons from "../../shared/functions/scrollToPokemons";
 import "./PokedexView.css";
 
-const PokedexView = () => {
+const PokedexView = ({ totalAmountOfPokemonsToGet }) => {
   const location = useLocation();
+  const defaultSortTitle = "Lowest Number (First)";
+  const noSortTitle = "Sort results by...";
+  const pokemonsToShow = 12;
+  const sortOptions = [
+    "Sort results by...",
+    "Lowest Number (First)",
+    "Highest Number (First)",
+    "A-Z",
+    "Z-A",
+  ];
+
   const [allPokemons] = useContext(PokemonContext);
   const [pokemons, setPokemons] = useState([]);
-  const [offset, setOffset] = useState(12);
+  const [offset, setOffset] = useState(pokemonsToShow);
   const [search, setSearch] = useState(location.state ? location.state : "");
   const [foundPokemons, setFoundPokemons] = useState([]);
   const [noPokemonsFound, setNoPokemonsFound] = useState(false);
   const [open, setOpen] = useState(false);
+  const [sortTitle, setSortTitle] = useState();
+  const [isFetchDone, setIsFetchDone] = useState();
 
   useEffect(() => {
-    setNoPokemonsFound(false);
-    setOffset(12);
-    setPokemons([]);
     if (search.length > 0 && allPokemons.length > 0) {
       findPokemons();
     }
@@ -28,43 +46,89 @@ const PokedexView = () => {
 
   useEffect(() => {
     if (pokemons.length < 1 && allPokemons.length >= 12) {
-      getfirstTwelvePokemons();
+      console.log("first time");
+      setSortTitle(defaultSortTitle);
+    }
+
+    if (allPokemons.length === totalAmountOfPokemonsToGet) {
+      setIsFetchDone(true);
     }
   }, [allPokemons]);
 
   useEffect(() => {
-    setPokemons([]);
-    getfirstTwelvePokemons();
-  }, [foundPokemons]);
+    if (sortTitle !== noSortTitle) {
+      if (foundPokemons.length < 1) {
+        setPokemons([]);
+      }
 
-  const getfirstTwelvePokemons = () => {
-    if (foundPokemons.length > 0) {
-      setPokemons(foundPokemons.slice(0, 12));
+      if (
+        isFetchDone ||
+        (sortTitle === defaultSortTitle && allPokemons.length >= pokemonsToShow)
+      ) {
+        sortPokemonsBySortTitle();
+        getFirstTwelvePokemons();
+      }
+    }
+  }, [sortTitle, isFetchDone, foundPokemons]);
+
+  const sortPokemonsBySortTitle = () => {
+    if (sortTitle === "Highest Number (First)") {
+      if (foundPokemons.length > 0) {
+        foundPokemons.sort(byHighestNumberFirst);
+      } else {
+        allPokemons.sort(byHighestNumberFirst);
+      }
+    } else if (sortTitle === "A-Z") {
+      if (foundPokemons.length > 0) {
+        foundPokemons.sort(byName);
+      } else {
+        allPokemons.sort(byName);
+      }
+    } else if (sortTitle === "Z-A") {
+      if (foundPokemons.length > 0) {
+        foundPokemons.sort(byNameReversed);
+      } else {
+        allPokemons.sort(byNameReversed);
+      }
     } else {
-      setPokemons(allPokemons.slice(0, 12));
+      if (foundPokemons.length > 0) {
+        foundPokemons.sort(byLowestNumberFirst);
+      } else {
+        allPokemons.sort(byLowestNumberFirst);
+      }
+    }
+  };
+
+  const getFirstTwelvePokemons = () => {
+    if (foundPokemons.length > 0) {
+      setPokemons(foundPokemons.slice(0, pokemonsToShow));
+    } else {
+      setPokemons(allPokemons.slice(0, pokemonsToShow));
     }
   };
 
   const getTwelvePokemons = () => {
+    console.log(allPokemons.length);
     if (foundPokemons.length > 0) {
-      setPokemons([...pokemons, ...foundPokemons.slice(offset, offset + 12)]);
+      setPokemons([
+        ...pokemons,
+        ...foundPokemons.slice(offset, offset + pokemonsToShow),
+      ]);
     } else {
-      setPokemons([...pokemons, ...allPokemons.slice(offset, offset + 12)]);
+      setPokemons([
+        ...pokemons,
+        ...allPokemons.slice(offset, offset + pokemonsToShow),
+      ]);
     }
 
-    setOffset(offset + 12);
+    setOffset(offset + pokemonsToShow);
   };
 
   const searchForPokemons = (event) => {
-    allPokemons.sort(function (a, b) {
-      return a.id - b.id;
-    });
     setFoundPokemons([]);
-    const top = document
-      .getElementById("pokemon-cards")
-      .getBoundingClientRect().top;
-    window.scrollTo({ top: top, left: 0 });
+    scrollToPokemons();
     findPokemons();
+    setSortTitle(defaultSortTitle);
     event.preventDefault();
   };
 
@@ -101,19 +165,11 @@ const PokedexView = () => {
     }
   };
 
-  const containsPokemon = (list, pokemon) => {
-    for (let i = 0; i < list.length; i++) {
-      if (list[i] === pokemon) {
-        return true;
-      }
-    }
-
-    return false;
-  };
-
   const shufflePokemons = () => {
+    setSortTitle("Sort results by...");
     setSearch("");
     setFoundPokemons([]);
+    setNoPokemonsFound(false);
     let i = allPokemons.length;
 
     while (--i) {
@@ -123,12 +179,17 @@ const PokedexView = () => {
       allPokemons[i] = tempj;
       allPokemons[j] = tempi;
     }
-    getfirstTwelvePokemons();
+    getFirstTwelvePokemons();
+    scrollToPokemons();
   };
 
   const displayData = () => {
     if (pokemons.length < 1) {
-      return <Loader />;
+      return (
+        <div className="pokedex-loader">
+          <Loader />
+        </div>
+      );
     } else if (noPokemonsFound) {
       return <ErrorContainer />;
     }
@@ -144,48 +205,58 @@ const PokedexView = () => {
   };
 
   return (
-    <div className="view-container">
-      <div className="heading-container">
+    <main>
+      <heading>
         <h1 className="heading-title">Pokédex</h1>
-      </div>
-      <SearchContainer
-        search={search}
-        setSearch={setSearch}
-        searchForPokemons={searchForPokemons}
-      />
-      <div className="divider">
-        <div className="divider-notch"></div>
-      </div>
-      <div className="btn-container top-btns-container">
-        <button className="btn btn-surprise" onClick={shufflePokemons}>
-          <i class="fas fa-sync-alt"></i> Surprise Me!
-        </button>
-        <button className="btn btn-sort" onClick={() => setOpen(!open)}>
-          <span>Sort results by...</span>
-          <i class={`fas fa-chevron-${open ? "up" : "down"} fa-lg`}></i>
-        </button>
-      </div>
-      <div id="pokemon-cards" className="body-container">
-        {displayData()}
-      </div>
-      <div className="btn-container btn-load-more-container">
-        <button
-          style={{
-            display:
-              (foundPokemons.length > 0 &&
-                foundPokemons.length <= pokemons.length) ||
-              noPokemonsFound ||
-              allPokemons.length <= pokemons.length
-                ? "none"
-                : "",
-          }}
-          className="btn btn-load-more"
-          onClick={() => getTwelvePokemons()}
-        >
-          Load more Pokémon
-        </button>
-      </div>
-    </div>
+        <SearchContainer
+          search={search}
+          setSearch={setSearch}
+          searchForPokemons={searchForPokemons}
+        />
+        <AdvancedSearch />
+      </heading>
+      <section>
+        <div className="btn-container top-btns-container">
+          <button className="btn btn-surprise" onClick={shufflePokemons}>
+            <i class="fas fa-sync-alt"></i> Surprise Me!
+          </button>
+          <div className="sort-container">
+            <button
+              className="btn btn-drop-down-header"
+              onClick={() => setOpen(!open)}
+            >
+              <span>{sortTitle}</span>
+              <i class={`fas fa-chevron-${open ? "up" : "down"} fa-lg`}></i>
+            </button>
+            <DropDownMenu
+              open={open}
+              setOpen={setOpen}
+              setDropDownTitle={setSortTitle}
+              options={sortOptions}
+              className="sort"
+            />
+          </div>
+        </div>
+        <div id="pokemon-cards">{displayData()}</div>
+        <div className="btn-container btn-load-more-container">
+          <button
+            style={{
+              display:
+                (foundPokemons.length > 0 &&
+                  foundPokemons.length <= pokemons.length) ||
+                noPokemonsFound ||
+                allPokemons.length <= pokemons.length
+                  ? "none"
+                  : "",
+            }}
+            className="btn btn-load-more"
+            onClick={() => getTwelvePokemons()}
+          >
+            Load more Pokémon
+          </button>
+        </div>
+      </section>
+    </main>
   );
 };
 

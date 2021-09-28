@@ -8,7 +8,7 @@ import DetailsView from "../views/detailsview/DetailsView";
 import AboutView from "../views/aboutview/AboutView";
 import Footer from "../components/footer/Footer";
 
-const Routes = () => {
+const Routes = ({ totalAmountOfPokemonsToGet }) => {
   return (
     <BrowserRouter>
       <Brand />
@@ -21,7 +21,9 @@ const Routes = () => {
           <AboutView />
         </Route>
         <Route path={RoutingPath.pokedexView}>
-          <PokedexView />
+          <PokedexView
+            totalAmountOfPokemonsToGet={totalAmountOfPokemonsToGet}
+          />
         </Route>
       </Switch>
       <Footer />

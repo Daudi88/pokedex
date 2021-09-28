@@ -1,48 +1,11 @@
-.divider {
-  background-color: var(--clr-grey-dark);
-  height: 3em;
-  position: relative;
-}
-
-.divider-notch {
-  width: 70vw;
-  max-width: 30em;
-  height: 18px;
-  background-color: var(--clr-grey-dark);
-  margin: 0 auto;
-  position: absolute;
-  top: 2.9em;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.divider-notch::before,
-.divider-notch::after {
-  top: 0;
-  content: " ";
-  position: absolute;
-  width: 38px;
-  height: 18px;
-}
-
-.divider-notch::before {
-  background: transparent
-    url("https://assets.pokemon.com/static2/_ui/img/chrome/notches/large-notch-darkgray.png")
-    no-repeat;
-  left: -37px;
-  transform: scaleY(-1);
-}
-
-.divider-notch::after {
-  background: transparent
-    url("https://assets.pokemon.com/static2/_ui/img/chrome/notches/large-notch-darkgray.png")
-    no-repeat;
-  right: -37px;
-  transform: rotate(180deg);
-}
-
 #pokemon-cards {
-  justify-content: start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.pokedex-loader {
+  margin: 5em auto 8em;
 }
 
 .btn-container {
@@ -57,23 +20,28 @@
 
 .top-btns-container {
   padding-block: 1em 3em;
+  position: relative;
 }
 
-.btn-sort {
-  font-family: "Flexo-Regular";
+.sort-container {
+  width: 80vw;
+  position: relative;
+  color: #fff;
+}
+
+.btn-drop-down-header {
   font-size: 1rem;
   background-color: var(--clr-black);
-  width: 80vw;
   height: 2.5em;
   border-radius: 5px;
   margin-top: 1em;
   text-align: left;
   padding-left: 1.25em;
   position: relative;
-  color: #fff;
+  width: 100%;
 }
 
-.btn-sort > i {
+.btn-drop-down-header > i {
   position: absolute;
   right: 0.5em;
   top: 50%;
@@ -122,9 +90,10 @@
 
   .btn-surprise {
     width: 20em;
+    margin-right: 1em;
   }
 
-  .btn-sort {
+  .sort-container {
     width: 22em;
   }
 

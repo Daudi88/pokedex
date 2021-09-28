@@ -4,9 +4,10 @@ import PokemonProvider from "./shared/provider/PokemonProvider";
 import "./shared/global/Styles.css";
 
 const App = () => {
+  const totalAmountOfPokemonsToGet = 898;
   return (
-    <PokemonProvider>
-      <Routes />
+    <PokemonProvider totalAmountOfPokemonsToGet={totalAmountOfPokemonsToGet}>
+      <Routes totalAmountOfPokemonsToGet={totalAmountOfPokemonsToGet} />
     </PokemonProvider>
   );
 };

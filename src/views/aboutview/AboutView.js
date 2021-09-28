@@ -3,11 +3,11 @@ import "./AboutView.css";
 
 const AboutView = () => {
   return (
-    <div className="view-container">
-      <div className="heading-container">
+    <main>
+      <heading>
         <h1 className="heading-title">About</h1>
-      </div>
-      <div className="body-container">
+      </heading>
+      <section>
         <p className="about-text">
           I built this page to learn{" "}
           <a href="https://reactjs.org/" target="_blank">
@@ -19,8 +19,8 @@ const AboutView = () => {
           </a>{" "}
           and have tried to mimic a lot of their concepts.
         </p>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 

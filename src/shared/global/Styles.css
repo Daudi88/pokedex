@@ -1,6 +1,7 @@
 :root {
   --clr-grey: #a4a4a4;
   --clr-grey-dark: #616161;
+  --clr-grey-light: #8b8b8b;
   --clr-black: #313131;
   --clr-black-dark: #1f1f1f;
   --clr-light-white: #f2f2f2;
@@ -73,14 +74,16 @@ img {
   overflow: hidden;
 }
 
-.view-container {
+main {
   background-color: #fff;
   background-image: url("https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png");
   min-height: 60vh;
 }
 
-.heading-container {
+header {
   background-color: #fff;
+  position: relative;
+  z-index: 10;
 }
 
 .heading-title {
@@ -88,9 +91,11 @@ img {
   font-size: 2rem;
   font-weight: normal;
   padding: 1.25em 0.5em 0.5em;
+  width: 100%;
+  background-color: #fff;
 }
 
-.body-container {
+section {
   background-color: #fff;
   padding-block: 0 1em;
   min-height: 37.4vh;
@@ -104,38 +109,28 @@ img {
 }
 
 @media (min-width: 460px) {
-  .view-container {
+  main {
     width: 100%;
   }
 
-  .heading-container {
+  .heading-title {
     width: 85.5%;
     margin: 0 auto;
   }
 
-  .body-container {
+  section {
     width: calc(85% + 1.5em);
     margin: 0 auto;
     background-color: #fff;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1vw;
     padding-inline: 1em;
     justify-content: center;
   }
 }
 
 @media (min-width: 1024px) {
-  .view-container {
+  main {
     text-align: center;
     max-width: 80em;
-    margin: 0 auto;
-  }
-
-  .heading-container {
-    display: flex;
-    justify-content: center;
-    width: 56em;
     margin: 0 auto;
   }
 
@@ -146,9 +141,8 @@ img {
     color: var(--clr-grey);
   }
 
-  .body-container {
+  section {
     padding-inline: 0.5em;
     width: 56em;
-    gap: 0.9em;
   }
 }

@@ -45,10 +45,9 @@
 
 .footer-content {
   height: 100%;
-  width: 80em;
+  max-width: 80em;
   text-align: left;
   padding: 1em 2.5em;
-  position: relative;
   margin: 0 auto;
 }
 

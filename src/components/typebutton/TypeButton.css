@@ -21,6 +21,17 @@
   border-radius: 5px;
 }
 
+.btn-advanced {
+  width: 23vw;
+  max-width: 7em;
+  height: 1.9em;
+  font-size: 1rem;
+  font-weight: lighter;
+  border: 1px solid var(--clr-grey);
+  border-radius: 5px;
+  margin-right: 1vw;
+}
+
 @media (min-width: 960px) {
   .btn-details {
     width: 12.5vw;

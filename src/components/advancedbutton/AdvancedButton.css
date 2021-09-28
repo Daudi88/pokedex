@@ -1,0 +1,23 @@
+.advanced-button {
+  display: flex;
+  margin-bottom: 0.5em;
+  width: 50%;
+}
+
+.btn-advanced-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin-right: 1vw;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.advanced-circle-content {
+  font-family: "Flexo-Demi";
+  color: var(--clr-black-dark);
+  font-size: 1rem;
+}
