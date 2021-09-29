@@ -1,27 +1,25 @@
 import React, { createContext, useEffect, useState } from "react";
 import PokemonAPIService from "../api/service/PokemonAPIService";
 import checkName from "../functions/checkName";
-import calculateWeaknesses from "../functions/calculateWeaknesses";
 
 export const PokemonContext = createContext();
 
 const PokemonProvider = ({ children, totalAmountOfPokemonsToGet }) => {
   const [serverData, setServerData] = useState([]);
-  const [serverDataCounter, setServerDataCounter] = useState(0);
+  const [counter, setCounter] = useState(0);
   const [allPokemons, setAllPokemons] = useState([]);
 
   useEffect(() => {
-    console.log(totalAmountOfPokemonsToGet);
     if (allPokemons.length < 1) {
       fetchData();
     }
   }, []);
 
   useEffect(() => {
-    if (serverDataCounter < serverData?.length) {
-      fetchPokemon(serverData[serverDataCounter]);
+    if (counter < serverData?.length) {
+      fetchPokemon(serverData[counter]);
     }
-  }, [serverData, serverDataCounter]);
+  }, [serverData, counter]);
 
   const fetchData = async () => {
     try {
@@ -29,7 +27,7 @@ const PokemonProvider = ({ children, totalAmountOfPokemonsToGet }) => {
         totalAmountOfPokemonsToGet
       );
       setServerData(data.results);
-      setServerDataCounter(0);
+      setCounter(0);
     } catch (error) {
       console.log(error);
     }
@@ -52,7 +50,7 @@ const PokemonProvider = ({ children, totalAmountOfPokemonsToGet }) => {
       };
 
       setAllPokemons([...allPokemons, pokemon]);
-      setServerDataCounter(serverDataCounter + 1);
+      setCounter(counter + 1);
     } catch (error) {
       console.log(error);
     }

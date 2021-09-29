@@ -4,11 +4,11 @@ const getAbilities = (pokemons) => {
   const abilities = [];
   const abilityObjects = [];
 
-  pokemons.map((pokemon) => {
+  pokemons.forEach((pokemon) => {
     abilityObjects.push(...pokemon.info.abilities);
   });
 
-  abilityObjects.map((object) => {
+  abilityObjects.forEach((object) => {
     if (!abilities.includes(capitalize(object.ability.name))) {
       abilities.push(capitalize(object.ability.name));
     }

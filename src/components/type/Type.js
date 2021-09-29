@@ -14,6 +14,7 @@ const Type = (props) => {
               type={value.type.name}
               className={props.className}
               isClickable={props.isClickable}
+              isType={true}
             />
           );
         })}

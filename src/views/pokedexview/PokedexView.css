@@ -81,6 +81,13 @@
   }
 }
 
+@media (min-width: 768px) {
+  #pokemon-cards {
+    justify-content: left;
+    gap: 1.5vw;
+  }
+}
+
 @media (min-width: 960px) {
   .btn-container {
     flex-direction: row;
@@ -103,6 +110,10 @@
 }
 
 @media (min-width: 1024px) {
+  #pokemon-cards {
+    gap: 0.9em;
+  }
+
   .btn-container {
     width: 56em;
   }

@@ -1,0 +1,9 @@
+.btn-stats {
+  border: none;
+  padding: 1.5em;
+  font-family: "Flexo-Medium";
+  font-size: 1rem;
+  border-radius: 8px;
+  margin: 1em;
+  cursor: pointer;
+}

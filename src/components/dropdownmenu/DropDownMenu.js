@@ -5,7 +5,6 @@ const DropDownMenu = (props) => {
   const handleClick = (event) => {
     props.setOpen(!props.open);
     props.setDropDownTitle(event.target.innerHTML);
-    console.log(`${props.className}-drop-down-item`);
   };
 
   return (
@@ -16,6 +15,7 @@ const DropDownMenu = (props) => {
       {props.options.map((option) => {
         return (
           <button
+            key={Math.random()}
             onClick={(event) => handleClick(event)}
             className={`drop-down-item ${props.className}-drop-down-item`}
           >
@@ -23,19 +23,6 @@ const DropDownMenu = (props) => {
           </button>
         );
       })}
-
-      {/* <button onClick={(event) => handleClick(event)} className="btn-drop-down">
-        Lowest Number (First)
-      </button>
-      <button onClick={(event) => handleClick(event)} className="btn-drop-down">
-        Highest Number (First)
-      </button>
-      <button onClick={(event) => handleClick(event)} className="btn-drop-down">
-        A-Z
-      </button>
-      <button onClick={(event) => handleClick(event)} className="btn-drop-down">
-        Z-A
-      </button> */}
     </div>
   );
 };

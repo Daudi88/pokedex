@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useLocation } from "react-router";
+import { useLocation } from "react-router";
 import { NavLink } from "react-router-dom";
 import RoutingPath from "../../../routes/RoutingPath";
 import "./NavbarDesktop.css";
 
 const Navbar = () => {
-  const history = useHistory();
   const location = useLocation();
   const [isPokedexActive, setIsPokedexActive] = useState(false);
   const [isDetailsActive, setIsDetailsActive] = useState(false);

@@ -10,7 +10,10 @@ export const TypeButton = (props) => {
 
   const handleClick = () => {
     if (props.isClickable) {
-      history.push(RoutingPath.pokedexView, props.type);
+      history.push(RoutingPath.pokedexView, {
+        isType: props.isType,
+        name: props.type,
+      });
     }
   };
   return (

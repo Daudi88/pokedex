@@ -14,6 +14,7 @@ const Weaknesses = (props) => {
               type={value}
               className={props.className}
               isClickable={props.isClickable}
+              isType={false}
             />
           );
         })}

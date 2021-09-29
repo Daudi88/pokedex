@@ -152,7 +152,7 @@ const DetailsView = () => {
 
   return (
     <main>
-      <heading className="arrows-container">
+      <header className="arrows-container">
         <button
           className="btn-arrow btn-arrow-left"
           onClick={() => changePokemon(decreaseId(pokemonId, 1))}
@@ -173,7 +173,7 @@ const DetailsView = () => {
             <span className="details-id">{formatId(pokemon?.id)}</span>
           </div>
         </div>
-      </heading>
+      </header>
       <section>{showDetails()}</section>
     </main>
   );

@@ -40,7 +40,7 @@ const Footer = () => {
         className="btn-page-up"
         style={{ transform: showPageUp ? "translateY(0)" : "translateY(100%)" }}
       >
-        <i class="fas fa-chevron-up fa-3x"></i>
+        <i className="fas fa-chevron-up fa-3x"></i>
       </button>
     </footer>
   );

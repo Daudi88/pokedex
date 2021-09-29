@@ -11,7 +11,6 @@ import byLowestNumberFirst from "../../shared/functions/sort/byLowestNumberFirst
 import byHighestNumberFirst from "../../shared/functions/sort/byHighestNumberFirst";
 import byName from "../../shared/functions/sort/byName";
 import byNameReversed from "../../shared/functions/sort/byNameReversed";
-import containsPokemon from "../../shared/functions/containsPokemon";
 import scrollToPokemons from "../../shared/functions/scrollToPokemons";
 import "./PokedexView.css";
 
@@ -31,12 +30,18 @@ const PokedexView = ({ totalAmountOfPokemonsToGet }) => {
   const [allPokemons] = useContext(PokemonContext);
   const [pokemons, setPokemons] = useState([]);
   const [offset, setOffset] = useState(pokemonsToShow);
-  const [search, setSearch] = useState(location.state ? location.state : "");
+  const [search, setSearch] = useState("");
   const [foundPokemons, setFoundPokemons] = useState([]);
   const [noPokemonsFound, setNoPokemonsFound] = useState(false);
   const [open, setOpen] = useState(false);
   const [sortTitle, setSortTitle] = useState();
   const [isFetchDone, setIsFetchDone] = useState();
+  const [advancedSearch, setAdvancedSearch] = useState({
+    search: false,
+    numberRange: { lowestNumber: 1, highestNumber: 898 },
+    types: location.state?.isType ? [location.state.name] : [],
+    weaknesses: location.state?.isType ? [] : [location.state?.name],
+  });
 
   useEffect(() => {
     if (search.length > 0 && allPokemons.length > 0) {
@@ -46,7 +51,6 @@ const PokedexView = ({ totalAmountOfPokemonsToGet }) => {
 
   useEffect(() => {
     if (pokemons.length < 1 && allPokemons.length >= 12) {
-      console.log("first time");
       setSortTitle(defaultSortTitle);
     }
 
@@ -70,6 +74,16 @@ const PokedexView = ({ totalAmountOfPokemonsToGet }) => {
       }
     }
   }, [sortTitle, isFetchDone, foundPokemons]);
+
+  useEffect(() => {
+    if (advancedSearch?.search) {
+      setFoundPokemons([]);
+      scrollToPokemons();
+      findPokemons();
+      setSortTitle(defaultSortTitle);
+      setAdvancedSearch((prevValues) => ({ ...prevValues, search: false }));
+    }
+  }, [advancedSearch]);
 
   const sortPokemonsBySortTitle = () => {
     if (sortTitle === "Highest Number (First)") {
@@ -108,7 +122,6 @@ const PokedexView = ({ totalAmountOfPokemonsToGet }) => {
   };
 
   const getTwelvePokemons = () => {
-    console.log(allPokemons.length);
     if (foundPokemons.length > 0) {
       setPokemons([
         ...pokemons,
@@ -133,28 +146,69 @@ const PokedexView = ({ totalAmountOfPokemonsToGet }) => {
   };
 
   const findPokemons = () => {
-    if (search.length > 0) {
+    if (search?.length > 0) {
       const matchingPokemons = allPokemons.filter(
         (pokemon) =>
           pokemon.name.toLowerCase().includes(search.toLowerCase()) ||
           String(pokemon.id).includes(search)
       );
 
-      for (let i = 0; i < allPokemons.length; i++) {
-        for (let j = 0; j < allPokemons[i].types.length; j++) {
+      if (matchingPokemons.length > 0) {
+        setNoPokemonsFound(false);
+        setFoundPokemons(matchingPokemons);
+        setSearch();
+      } else {
+        setNoPokemonsFound(true);
+        setFoundPokemons([]);
+      }
+    } else if (advancedSearch) {
+      const pokemonsInRange = allPokemons.slice(
+        advancedSearch.numberRange.lowestNumber - 1,
+        advancedSearch.numberRange.highestNumber
+      );
+
+      const pokemonOfTypes = [];
+      const matchingPokemons = [];
+
+      if (advancedSearch.types.length > 0) {
+        let counter = 0;
+
+        pokemonsInRange.map((pokemon) => {
+          pokemon.types.forEach((type) => {
+            if (advancedSearch.types.includes(type.type.name)) {
+              counter++;
+            }
+          });
+
           if (
-            allPokemons[i].types[j].type.name === search.toLowerCase() &&
-            !containsPokemon(matchingPokemons, allPokemons[i])
+            counter === advancedSearch.types.length &&
+            !pokemonOfTypes.includes(pokemon)
           ) {
-            matchingPokemons.push(allPokemons[i]);
+            pokemonOfTypes.push(pokemon);
           }
-        }
+
+          counter = 0;
+        });
+      } else {
+        pokemonOfTypes.push(...pokemonsInRange);
+      }
+
+      if (advancedSearch.ability !== "All") {
+        pokemonOfTypes.map((pokemon) => {
+          pokemon.info.abilities.forEach((ability) => {
+            if (ability.ability.name === advancedSearch.ability.toLowerCase()) {
+              matchingPokemons.push(pokemon);
+            }
+          });
+        });
+      } else {
+        matchingPokemons.push(...pokemonOfTypes);
       }
 
       if (matchingPokemons.length > 0) {
         setNoPokemonsFound(false);
         setFoundPokemons(matchingPokemons);
-        setSearch("");
+        setAdvancedSearch();
       } else {
         setNoPokemonsFound(true);
         setFoundPokemons([]);
@@ -206,19 +260,22 @@ const PokedexView = ({ totalAmountOfPokemonsToGet }) => {
 
   return (
     <main>
-      <heading>
+      <header>
         <h1 className="heading-title">Pokédex</h1>
         <SearchContainer
           search={search}
           setSearch={setSearch}
           searchForPokemons={searchForPokemons}
         />
-        <AdvancedSearch />
-      </heading>
+        <AdvancedSearch
+          advancedSearch={advancedSearch}
+          setAdvancedSearch={setAdvancedSearch}
+        />
+      </header>
       <section>
         <div className="btn-container top-btns-container">
           <button className="btn btn-surprise" onClick={shufflePokemons}>
-            <i class="fas fa-sync-alt"></i> Surprise Me!
+            <i className="fas fa-sync-alt"></i> Surprise Me!
           </button>
           <div className="sort-container">
             <button
@@ -226,7 +283,7 @@ const PokedexView = ({ totalAmountOfPokemonsToGet }) => {
               onClick={() => setOpen(!open)}
             >
               <span>{sortTitle}</span>
-              <i class={`fas fa-chevron-${open ? "up" : "down"} fa-lg`}></i>
+              <i className={`fas fa-chevron-${open ? "up" : "down"} fa-lg`}></i>
             </button>
             <DropDownMenu
               open={open}

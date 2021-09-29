@@ -1,24 +1,25 @@
 import http from "../PokemonAPI";
 
-const getPokemon = (identifier) => {
+const PokemonAPIService = {};
+
+PokemonAPIService.getPokemon = (identifier) => {
   return http.get(`pokemon/${identifier}`);
 };
 
-const getAllPokemons = (totalAmountOfPokemonsToGet) => {
+PokemonAPIService.getAllPokemons = (totalAmountOfPokemonsToGet) => {
   return http.get(`pokemon?limit=${totalAmountOfPokemonsToGet}`);
 };
 
-const getPokemonDescription = (id) => {
+PokemonAPIService.getPokemonDescription = (id) => {
   return http.get(`pokemon-species/${id}`);
 };
 
-const getWeaknesses = (type) => {
+PokemonAPIService.getWeaknesses = (type) => {
   return http.get(`type/${type}`);
 };
 
-export default {
-  getPokemon,
-  getAllPokemons,
-  getPokemonDescription,
-  getWeaknesses,
+PokemonAPIService.getTypes = () => {
+  return http.get("type/");
 };
+
+export default PokemonAPIService;
